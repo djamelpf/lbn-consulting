@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "title": "Djamel Labani — Product Coach & committed founder, Lille",
+    "description": "Freelance product coach and product manager with 10+ years across retail, marketplaces, fintech and energy. I step in where things get stuck: roadmap, strategy, discovery, siloed teams. Founder of LBN Consulting, co-founder of Le Berceau de Location.",
+    "ogTitle": "Djamel Labani",
+    "ogSubtitle": "Product Coach & committed founder",
+    "ogTagline": "I step in where things get stuck."
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main navigation",
+    "langSwitch": "Switch language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "externalLink": "(opens in a new window)",
+    "portraitAlt": "Black and white portrait of Djamel Labani, arms crossed, smiling"
+  },
+  "nav": {
+    "items": [
+      { "id": "about", "label": "About" },
+      { "id": "expertise", "label": "Expertise" },
+      { "id": "journey", "label": "Journey" },
+      { "id": "berceau", "label": "Le Berceau" },
+      { "id": "lbn", "label": "LBN Consulting" },
+      { "id": "contact", "label": "Contact" }
+    ],
+    "cta": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+  },
+  "hero": {
+    "eyebrow": "Product Coach & committed founder",
+    "name": "Djamel Labani",
+    "role": "Product Coach & committed founder",
+    "hook": "I step in where things get stuck.",
+    "symptoms": ["Blurry roadmap", "strategy that never lands", "no discovery", "siloed teams"],
+    "promise": "I help product teams get unstuck, for good.",
+    "ctaPrimary": { "label": "Reach me on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "ctaSecondary": { "label": "See my journey", "href": "#journey" },
+    "scrollHint": "Scroll",
+    "meta": [
+      { "label": "Based in", "value": "Lille, France" },
+      { "label": "Practice", "value": "10+ years" },
+      { "label": "Status", "value": "Freelance · LBN Consulting" }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "paragraphs": [
+      "For over ten years I have worked alongside product teams in demanding environments (retail, marketplaces, fintech, energy), helping them shape their strategy, speed up delivery and connect goals to real impact. I am a practitioner, not a theorist.",
+      "And I live what I coach from the inside: alongside my consulting work, I am co-founding Le Berceau de Location, with its constant trade-offs, its discovery work and its go-to-market.",
+      "My roots are technical: developer, then systems and network engineer, before moving into agility and product in 2016."
+    ],
+    "facts": [
+      { "value": 10, "suffix": "+", "label": "years alongside product teams" },
+      { "value": 4, "label": "sectors: retail, marketplaces, fintech, energy" },
+      { "value": 2016, "label": "the switch from tech to product" }
+    ]
+  },
+  "expertise": {
+    "title": "Expertise",
+    "intro": "Six areas of work, rarely in isolation: a blurry roadmap usually hides a strategy that never landed, and slow delivery often comes from missing discovery. The lines between cards show these dependencies.",
+    "connectorsHint": "Hover a card to see its dependencies.",
+    "items": [
+      {
+        "id": "strategie",
+        "icon": "compass",
+        "title": "Product strategy and vision",
+        "description": "Framing initiatives, prioritisation, OKRs to connect vision and execution.",
+        "tags": ["Framing", "Prioritisation", "OKRs"],
+        "links": ["roadmap", "discovery"]
+      },
+      {
+        "id": "roadmap",
+        "icon": "map",
+        "title": "Roadmap and backlog",
+        "description": "Structure, trade-offs, steering by value.",
+        "tags": ["Structure", "Trade-offs", "Value"],
+        "links": ["strategie", "delivery"]
+      },
+      {
+        "id": "discovery",
+        "icon": "search",
+        "title": "Product discovery",
+        "description": "Workshops, Example Mapping, Gherkin, metrics: understand before you build.",
+        "tags": ["Workshops", "Example Mapping", "Gherkin", "Metrics"],
+        "links": ["strategie", "echelle"]
+      },
+      {
+        "id": "echelle",
+        "icon": "layers",
+        "title": "Agility at scale",
+        "description": "SAFe, Nexus, Quarter Planning, multi-team synchronisation, dependency management.",
+        "tags": ["SAFe", "Nexus", "Quarter Planning", "Dependencies"],
+        "links": ["discovery", "delivery"]
+      },
+      {
+        "id": "delivery",
+        "icon": "gauge",
+        "title": "Delivery and performance",
+        "description": "Process improvement, DORA metrics, the Accelerate approach.",
+        "tags": ["Process", "DORA", "Accelerate"],
+        "links": ["roadmap", "echelle", "humain"]
+      },
+      {
+        "id": "humain",
+        "icon": "users",
+        "title": "People and change",
+        "description": "Mentoring PMs and POs, change management, coaching managers.",
+        "tags": ["Mentoring", "Change", "Managers"],
+        "links": ["delivery"]
+      }
+    ],
+    "certifications": {
+      "title": "Certifications",
+      "items": ["Professional Scrum Master I", "Professional Scrum Product Owner I"]
+    }
+  },
+  "journey": {
+    "title": "Journey",
+    "intro": "The short version. The full story, mission by mission, is on LinkedIn.",
+    "items": [
+      {
+        "period": "Since Dec. 2025",
+        "role": "Product Coach",
+        "org": "Boulanger",
+        "detail": "Facilitating Quarter Planning across the whole IT organisation.",
+        "current": true
+      },
+      {
+        "period": "Since June 2025",
+        "role": "Co-founder & Head of Product",
+        "org": "Le Berceau de Location",
+        "detail": "Discovery, go-to-market, trade-offs with scarce resources: product seen from the inside.",
+        "current": true
+      },
+      {
+        "period": "2022 — 2026",
+        "role": "Agile Coach, then Product Coach",
+        "org": "ADEO / Leroy Merlin",
+        "detail": "Marketplace: OKR-based steering, redesign of the initiative delivery process, growing product maturity."
+      },
+      {
+        "period": "2020 — 2022",
+        "role": "Consultant",
+        "org": "OCTO Technology",
+        "detail": "Enercoop, CACEIS and Bouygues Construction: product strategy, multi-country agility at scale, DORA metrics and the Accelerate approach."
+      },
+      {
+        "period": "2016 — 2020",
+        "role": "Scrum Master, then Agile Coach",
+        "org": "Publicis ETO, Auchan Retail, ADEO (via Extia)",
+        "detail": "International accounts, the Nexus framework, OKRs and dependency management on an ERP roll-out."
+      },
+      {
+        "period": "2009 — 2016",
+        "role": "Technical roots",
+        "org": "OCTIS, Innovasys, Conexance MD",
+        "detail": "Developer, then systems and network engineer, then head of infrastructure."
+      }
+    ],
+    "trust": {
+      "title": "They trusted me",
+      "names": ["Boulanger", "Leroy Merlin", "ADEO", "Enercoop", "CACEIS", "Bouygues Construction", "Auchan Retail", "Publicis"]
+    },
+    "community": {
+      "title": "Teaching and community",
+      "items": [
+        { "title": "Adjunct lecturer", "detail": "IAE Lille, Université de Lille, Efficom, Lille Ynov Campus." },
+        { "title": "Trainer", "detail": "VISIPLUS academy, product management and agility." },
+        { "title": "Nord Agile", "detail": "Treasurer of the association and co-organiser of Agile Tour Lille (300+ attendees)." }
+      ]
+    },
+    "cta": { "label": "Full journey on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+  },
+  "berceau": {
+    "title": "Le Berceau de Location",
+    "role": "Co-founder & Head of Product",
+    "pitch": [
+      "Le Berceau de Location is a marketplace for renting baby gear between parents and professional rental shops. Strollers, travel cots, car seats: most childcare equipment is only used for a few months.",
+      "Instead of buying new, parents rent close to home or at their holiday destination, from other parents or from professional renters. Owners earn a little from gear that would otherwise gather dust in the attic. No online payment, and a real person who answers within 24 hours.",
+      "Less spending for families, less waste for the planet."
+    ],
+    "values": [
+      { "title": "Circular economy", "detail": "Give quality gear a second life instead of manufacturing more of it." },
+      { "title": "Social impact", "detail": "Make quality equipment accessible to every family, for exactly as long as it is needed." }
+    ],
+    "cta": { "label": "Visit leberceaudelocation.com", "href": "https://www.leberceaudelocation.com" },
+    "note": "A product I build every day: discovery, prioritisation, go-to-market. The site is in French."
+  },
+  "lbn": {
+    "title": "LBN Consulting",
+    "text": "My consulting company, the structure behind my freelance product coaching and product management work.",
+    "activities": [
+      { "title": "Agile and product coaching", "detail": "Teams, PMs, POs and managers, on the ground." },
+      { "title": "Consulting", "detail": "Product strategy, roadmap, organisation, steering by value." },
+      { "title": "Transformation support", "detail": "Agility at scale, Quarter Planning, initiative delivery." }
+    ],
+    "legal": { "label": "Legal notice", "href": "/en/legal-notice/" },
+    "facts": [
+      { "label": "Entity", "value": "EURL (French LLC)" },
+      { "label": "Registered in", "value": "Lille" },
+      { "label": "Since", "value": "2023" }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "A roadmap to clarify, a team to unblock, a transformation to hold together? Let's talk.",
+    "cta": { "label": "Reach me on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "aside": "I reply to LinkedIn messages. No form, no phone number on this site."
+  },
+  "footer": {
+    "copyright": "LBN Consulting",
+    "legal": { "label": "Legal notice", "href": "/en/legal-notice/" },
+    "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "madeWith": "Static site, no cookies, no trackers."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This address leads nowhere. The whole site fits on one page.",
+    "back": "Back to home"
+  }
+}

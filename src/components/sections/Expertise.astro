@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHead from '../SectionHead.astro';
+import Icon from '../Icon.astro';
+import type { IconName } from '../Icon.astro';
+
+interface Props {
+  data: CollectionEntry<'site'>['data'];
+  id: string;
+  index: number;
+  total: number;
+}
+
+const { data, id, index, total } = Astro.props;
+const { expertise } = data;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <SectionHead index={index} total={total} title={expertise.title} intro={expertise.intro} id={id} />
+
+    <div class="relative" data-connectors>
+      <svg class="pointer-events-none absolute inset-0 z-0 hidden h-full w-full lg:block" data-connector-layer aria-hidden="true"></svg>
+
+      <ul class="relative z-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6" role="list">
+        {
+          expertise.items.map((item, i) => (
+            <li
+              class="card flex flex-col gap-4 p-6"
+              data-card={item.id}
+              data-links={item.links.join(' ')}
+              data-reveal
+              style={`--reveal-delay: ${(i % 3) * 70}ms`}
+              tabindex="0"
+            >
+              <div class="flex items-center justify-between">
+                <span class="grid h-10 w-10 place-items-center rounded-md bg-accent-soft text-accent">
+                  <Icon name={item.icon as IconName} class="h-5 w-5" />
+                </span>
+                <span class="label">{pad(i + 1)}</span>
+              </div>
+              <h3 class="display text-xl !tracking-[-0.02em] md:text-2xl">{item.title}</h3>
+              <p class="text-muted">{item.description}</p>
+              <ul class="mt-auto flex flex-wrap gap-2 pt-2" aria-label="Mots-clés">
+                {item.tags.map((t) => (
+                  <li class="rounded border border-line px-2 py-1 font-mono text-[0.7rem] uppercase tracking-[0.08em] text-muted">{t}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="label mt-6 hidden text-right lg:block" data-connectors-hint>{expertise.connectorsHint}</p>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-4 border-t border-line pt-6 md:flex-row md:items-center md:justify-between" data-reveal>
+      <h3 class="label">{expertise.certifications.title}</h3>
+      <ul class="flex flex-wrap gap-x-8 gap-y-2" role="list">
+        {
+          expertise.certifications.items.map((c) => (
+            <li class="inline-flex items-center gap-2 font-mono text-sm">
+              <Icon name="check" class="h-4 w-4 text-accent" />
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hint only makes sense when connectors are drawn (desktop + JS). */
+  [data-connectors]:not(.has-connectors) [data-connectors-hint] {
+    visibility: hidden;
+  }
+</style>

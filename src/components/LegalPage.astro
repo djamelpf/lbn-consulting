@@ -1,0 +1,77 @@
+---
+import { getEntry, render } from 'astro:content';
+import type { Locale } from '../lib/i18n';
+import { homePath } from '../lib/i18n';
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const site = await getEntry('site', locale);
+const legal = await getEntry('legal', locale);
+if (!site || !legal) throw new Error(`Missing content for locale "${locale}"`);
+const { Content } = await render(legal);
+---
+
+<Base locale={locale} data={site.data} kind="legal" title={`${legal.data.title} — ${site.data.meta.ogTitle}`} description={legal.data.description}>
+  <article class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <header class="grid gap-4 md:grid-cols-12 md:gap-8">
+      <p class="label md:col-span-3">
+        <span class="text-accent">§</span> {legal.data.updated}
+      </p>
+      <h1 class="display text-[2.5rem] md:col-span-9 md:text-[3.5rem]">{legal.data.title}</h1>
+    </header>
+
+    <div class="legal-body mt-12 grid gap-4 md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-8 md:col-start-4">
+        <Content />
+      </div>
+    </div>
+
+    <p class="mt-16 md:ml-[calc(25%+1rem)]">
+      <a href={homePath(locale)} class="btn btn-ghost">
+        <Icon name="arrow-left" />
+        {legal.data.backLabel}
+      </a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .legal-body :global(h2) {
+    font-family: var(--astro-font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .legal-body :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .legal-body :global(p) {
+    margin-top: 0.75rem;
+    max-width: 62ch;
+    color: var(--muted);
+  }
+
+  .legal-body :global(strong) {
+    color: var(--fg);
+  }
+
+  .legal-body :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+</style>

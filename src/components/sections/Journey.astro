@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHead from '../SectionHead.astro';
+import Icon from '../Icon.astro';
+
+interface Props {
+  data: CollectionEntry<'site'>['data'];
+  id: string;
+  index: number;
+  total: number;
+}
+
+const { data, id, index, total } = Astro.props;
+const { journey, a11y } = data;
+---
+
+<section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <SectionHead index={index} total={total} title={journey.title} intro={journey.intro} id={id} />
+
+    <ol class="relative border-l border-line" role="list">
+      {
+        journey.items.map((item, i) => (
+          <li class="relative grid gap-2 py-6 pl-8 md:grid-cols-12 md:gap-8 md:py-7" data-reveal style={`--reveal-delay: ${Math.min(i, 3) * 60}ms`}>
+            <span
+              class:list={[
+                'absolute -left-[5px] top-[2.1rem] h-[9px] w-[9px] rounded-sm',
+                item.current ? 'bg-hi ring-2 ring-bg' : 'bg-line-strong',
+              ]}
+              aria-hidden="true"
+            />
+            <p class="font-mono text-sm text-accent md:col-span-3">
+              {item.period}
+            </p>
+            <div class="md:col-span-9">
+              <h3 class="display text-xl !tracking-[-0.02em] md:text-2xl">
+                {item.role} <span class="text-muted">· {item.org}</span>
+              </h3>
+              <p class="prose-site mt-2 text-muted">{item.detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-10 flex justify-start" data-reveal>
+      <a href={journey.cta.href} class="btn btn-primary" target="_blank" rel="noopener noreferrer me">
+        <Icon name="linkedin" />
+        {journey.cta.label}
+        <span class="sr-only"> {a11y.externalLink}</span>
+      </a>
+    </div>
+
+    <div class="mt-20 border-t border-line pt-8" data-reveal>
+      <h3 class="label">{journey.trust.title}</h3>
+      <ul class="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-3" role="list">
+        {
+          journey.trust.names.map((n, i) => (
+            <li class="display flex items-baseline gap-6 text-xl text-fg !tracking-[-0.02em] md:text-2xl">
+              {n}
+              {i < journey.trust.names.length - 1 && <span class="font-mono text-base text-line-strong" aria-hidden="true">/</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="mt-16 border-t border-line pt-8">
+      <h3 class="label" data-reveal>{journey.community.title}</h3>
+      <ul class="mt-6 grid gap-6 md:grid-cols-3 md:gap-8" role="list">
+        {
+          journey.community.items.map((c, i) => (
+            <li class="border-l-2 border-accent pl-4" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              <h4 class="font-semibold">{c.title}</h4>
+              <p class="mt-1 text-muted">{c.detail}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

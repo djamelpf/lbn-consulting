@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Directions artistiques — Djamel Labani</title>
+<meta name="description" content="Trois directions artistiques contrastées pour le site de Djamel Labani, LBN Consulting et Le Berceau de Location.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Page shell (neutral, hors directions) ---------- */
+  :root {
+    --shell-bg: #ECEAE6;
+    --shell-fg: #1C1B19;
+    --shell-muted: #6B6A66;
+    --shell-line: #D6D3CD;
+    --shell-card: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Manrope, system-ui, sans-serif;
+    background: var(--shell-bg);
+    color: var(--shell-fg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+
+  .shell-header { padding: 56px 0 24px; }
+  .shell-header .kicker { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--shell-muted); }
+  .shell-header h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 10px 0 12px; letter-spacing: -.02em; }
+  .shell-header p { max-width: 70ch; color: var(--shell-muted); margin: 0; }
+  .shell-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 8px; }
+  .shell-nav a {
+    text-decoration: none; font-weight: 600; font-size: 14px;
+    padding: 10px 14px; border: 1px solid var(--shell-line); border-radius: 999px; background: var(--shell-card);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .shell-nav a:hover { transform: translateY(-1px); border-color: var(--shell-fg); }
+  .shell-nav a:focus-visible, button:focus-visible { outline: 3px solid #1D4ED8; outline-offset: 3px; }
+
+  .direction { padding: 64px 0 24px; border-top: 1px solid var(--shell-line); margin-top: 40px; }
+  .direction-head { display: grid; grid-template-columns: 1fr; gap: 20px; margin-bottom: 28px; }
+  @media (min-width: 900px) { .direction-head { grid-template-columns: 1.1fr .9fr; gap: 48px; } }
+  .direction-head .num { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--shell-muted); }
+  .direction-head h2 { font-size: clamp(30px, 4.5vw, 52px); line-height: 1.02; margin: 8px 0 14px; letter-spacing: -.025em; }
+  .direction-head h2 em { font-style: normal; color: var(--shell-muted); font-weight: 500; }
+  .direction-head p { margin: 0 0 10px; }
+  .direction-head .speaks { background: var(--shell-card); border: 1px solid var(--shell-line); border-radius: 14px; padding: 18px 20px; font-size: 15px; }
+  .direction-head .speaks strong { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--shell-muted); margin-bottom: 8px; font-family: "JetBrains Mono", monospace; }
+  .direction-head .speaks ul { margin: 0; padding-left: 18px; }
+  .direction-head .speaks li + li { margin-top: 4px; }
+
+  .block-title { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--shell-muted); margin: 36px 0 14px; display: flex; align-items: center; gap: 12px; }
+  .block-title::after { content: ""; flex: 1; height: 1px; background: var(--shell-line); }
+
+  /* ---------- Previews (light + dark côte à côte) ---------- */
+  .previews { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 900px) { .previews { grid-template-columns: 1fr 1fr; } }
+  .preview {
+    position: relative; overflow: hidden; border-radius: 18px; min-height: 420px;
+    background: var(--bg); color: var(--fg); border: 1px solid var(--line);
+    padding: 28px; display: grid; grid-template-rows: auto 1fr auto; gap: 18px;
+  }
+  .preview .mode-tag { position: absolute; top: 14px; right: 14px; font: 500 11px/1 "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); padding: 6px 8px; border-radius: 999px; background: color-mix(in srgb, var(--bg) 70%, transparent); }
+  .preview .nav { display: flex; gap: 16px; align-items: center; font-size: 12px; color: var(--muted); }
+  .preview .nav .brand { color: var(--fg); font-weight: 600; }
+  .preview .nav .sp { flex: 1; }
+  .preview .hero { display: grid; grid-template-columns: 1fr; gap: 20px; align-content: center; }
+  @media (min-width: 560px) { .preview .hero { grid-template-columns: 1.4fr 1fr; align-items: center; } }
+  .preview .eyebrow { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .preview h3 { margin: 0 0 10px; line-height: .98; letter-spacing: -.03em; font-weight: 400; }
+  .preview .hook { margin: 0 0 16px; font-size: 15px; max-width: 42ch; color: var(--fg); }
+  .preview .hook span { color: var(--muted); }
+  .preview .ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform .2s ease, background .2s ease, color .2s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn svg { width: 16px; height: 16px; }
+  .portrait { position: relative; aspect-ratio: 3 / 4; width: 100%; max-width: 220px; justify-self: end; display: grid; place-items: center; overflow: hidden; }
+  .portrait .cap { position: absolute; bottom: 10px; left: 10px; right: 10px; font: 400 11px/1.3 "JetBrains Mono", monospace; color: var(--muted); }
+  .preview .foot { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
+  /* ---------- Palette ---------- */
+  .palettes { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 900px) { .palettes { grid-template-columns: 1fr 1fr; } }
+  .palette { border-radius: 14px; border: 1px solid var(--shell-line); overflow: hidden; background: var(--shell-card); }
+  .palette .ph { display: flex; justify-content: space-between; padding: 12px 16px; font: 500 12px/1 "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--shell-muted); border-bottom: 1px solid var(--shell-line); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+  .sw { padding: 14px 12px 12px; min-height: 112px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; }
+  .sw .role { font-size: 12px; font-weight: 600; }
+  .sw .hex { font: 400 11px/1 "JetBrains Mono", monospace; opacity: .85; }
+  .sw .cr { font: 500 11px/1 "JetBrains Mono", monospace; padding: 4px 6px; border-radius: 6px; width: max-content; background: rgba(0,0,0,.08); }
+  .sw.on-dark .cr { background: rgba(255,255,255,.14); }
+
+  /* ---------- Typo ---------- */
+  .type-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 900px) { .type-grid { grid-template-columns: 1.3fr .7fr; } }
+  .specimen { background: var(--shell-card); border: 1px solid var(--shell-line); border-radius: 14px; padding: 28px; }
+  .specimen .big { font-size: clamp(40px, 6vw, 84px); line-height: .95; letter-spacing: -.03em; margin: 0 0 18px; font-weight: 400; }
+  .specimen .body { font-size: 17px; max-width: 58ch; margin: 0 0 14px; }
+  .specimen .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--shell-muted); }
+  .type-roles { background: var(--shell-card); border: 1px solid var(--shell-line); border-radius: 14px; padding: 20px 22px; font-size: 14px; }
+  .type-roles dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; }
+  .type-roles dt { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--shell-muted); padding-top: 3px; }
+  .type-roles dd { margin: 0; }
+  .type-roles dd strong { display: block; }
+
+  /* ---------- Micro-interactions ---------- */
+  .motions { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  @media (min-width: 900px) { .motions { grid-template-columns: repeat(3, 1fr); } }
+  .motion { border-radius: 14px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); overflow: hidden; display: flex; flex-direction: column; }
+  .motion .demo { height: 170px; display: grid; place-items: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .motion .txt { padding: 16px 18px 18px; font-size: 14px; }
+  .motion .txt strong { display: block; margin-bottom: 4px; }
+  .motion .txt span { color: var(--muted); }
+  .motion .hint { font: 400 11px/1 "JetBrains Mono", monospace; color: var(--muted); position: absolute; bottom: 10px; right: 12px; }
+
+  /* ---------- Table de synthèse ---------- */
+  .synth { margin: 56px 0 72px; padding-top: 48px; border-top: 1px solid var(--shell-line); }
+  .synth h2 { font-size: clamp(26px, 3.5vw, 36px); letter-spacing: -.02em; margin: 0 0 18px; }
+  table { width: 100%; border-collapse: collapse; background: var(--shell-card); border: 1px solid var(--shell-line); border-radius: 14px; overflow: hidden; font-size: 14px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--shell-line); vertical-align: top; }
+  th { font: 500 11px/1.4 "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--shell-muted); background: #F4F3F0; }
+  tr:last-child td { border-bottom: none; }
+  .reco { margin-top: 24px; padding: 22px 24px; background: var(--shell-fg); color: var(--shell-bg); border-radius: 14px; }
+  .reco strong { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 8px; opacity: .7; }
+  .reco p { margin: 0; max-width: 80ch; }
+  .common { margin-top: 24px; font-size: 14px; color: var(--shell-muted); max-width: 90ch; }
+
+  /* =====================================================================
+     DIRECTION A — « Manifeste »  (éditorial typographique)
+     ===================================================================== */
+  .dir-a.light { --bg: #F6F2EA; --fg: #141210; --muted: #6B645B; --accent: #B8381A; --line: #D9D2C5; --card: #FFFDF8; }
+  .dir-a.dark  { --bg: #121110; --fg: #F1ECE2; --muted: #A39B8F; --accent: #FF7A4D; --line: #2A2724; --card: #1A1816; }
+  .dir-a { font-family: Manrope, system-ui, sans-serif; }
+  .dir-a .nav, .dir-a .eyebrow, .dir-a .foot, .dir-a .cap, .dir-a .hint { font-family: "JetBrains Mono", monospace; }
+  .dir-a h3, .dir-a .big { font-family: "Instrument Serif", Georgia, serif; }
+  .dir-a .preview h3 { font-size: clamp(44px, 6vw, 68px); }
+  .dir-a .preview h3 em { color: var(--accent); }
+  .dir-a .hook { font-family: "Instrument Serif", Georgia, serif; font-size: 20px; line-height: 1.25; }
+  .dir-a .btn { border-radius: 0; }
+  .dir-a .btn.primary { background: var(--fg); color: var(--bg); }
+  .dir-a .btn.ghost { color: var(--fg); border-color: var(--line); background: transparent; }
+  .dir-a .btn.ghost:hover { border-color: var(--fg); }
+  .dir-a .portrait { background: var(--card); border: 1px solid var(--line); }
+  .dir-a .portrait::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(120% 90% at 30% 20%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+      repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--fg) 4%, transparent) 3px 4px); }
+  .dir-a .portrait .mark { position: relative; font-family: "Instrument Serif", serif; font-size: 72px; color: var(--accent); line-height: 1; }
+  /* Signature : mots barrés qui se « débloquent » */
+  .unblock { font-family: "Instrument Serif", Georgia, serif; font-size: 26px; line-height: 1.3; text-align: center; max-width: 24ch; padding: 0 16px; }
+  .unblock .w { position: relative; display: inline-block; color: var(--muted); transition: color .3s ease; }
+  .unblock .w::after { content: ""; position: absolute; left: -2px; right: -2px; top: 54%; height: 2px; background: var(--muted); transform-origin: left; transform: scaleX(1); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+  .motion:hover .unblock .w, .unblock.auto .w { color: var(--fg); }
+  .motion:hover .unblock .w::after, .unblock.auto .w::after { transform: scaleX(0); transform-origin: right; }
+  .motion:hover .unblock .w:nth-child(2)::after { transition-delay: .12s; }
+  .motion:hover .unblock .w:nth-child(3)::after { transition-delay: .24s; }
+  .motion:hover .unblock .w:nth-child(4)::after { transition-delay: .36s; }
+  .unblock .w:last-child { color: var(--accent); }
+  .unblock .w:last-child::after { display: none; }
+  /* Signature : trait de lecture dans la nav */
+  .readline { display: flex; flex-direction: column; gap: 14px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); position: relative; padding-left: 18px; }
+  .readline::before { content: ""; position: absolute; left: 0; top: 2px; width: 2px; height: 14px; background: var(--accent); animation: readline 4s cubic-bezier(.65,0,.35,1) infinite; }
+  @keyframes readline { 0%, 20% { transform: translateY(0); } 33%, 53% { transform: translateY(30px); } 66%, 86% { transform: translateY(60px); } 100% { transform: translateY(0); } }
+  .readline span:nth-child(1) { color: var(--fg); animation: dim 4s infinite; }
+  @keyframes dim { 0%,20% { color: var(--fg);} 33%,100% { color: var(--muted);} }
+  /* Signature : années sticky du parcours */
+  .sticky-years { display: grid; grid-template-columns: 64px 1fr; gap: 14px; width: 86%; height: 100%; align-items: start; padding-top: 22px; }
+  .sticky-years .y { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); position: relative; height: 100%; }
+  .sticky-years .y b { position: absolute; left: 0; font-weight: 500; animation: yearswap 5s steps(1) infinite; }
+  .sticky-years .y b:nth-child(2) { animation-delay: -2.5s; opacity: 0; }
+  @keyframes yearswap { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  .sticky-years .rows { display: grid; gap: 10px; animation: rowscroll 5s cubic-bezier(.65,0,.35,1) infinite; }
+  .sticky-years .rows div { height: 10px; border-radius: 2px; background: var(--line); }
+  .sticky-years .rows div:nth-child(2) { width: 70%; } .sticky-years .rows div:nth-child(4) { width: 55%; } .sticky-years .rows div:nth-child(6) { width: 80%; }
+  @keyframes rowscroll { 0%, 40% { transform: translateY(0); } 50%, 90% { transform: translateY(-40px); } 100% { transform: translateY(0); } }
+
+  /* =====================================================================
+     DIRECTION B — « Système »  (grille suisse, précision technique)
+     ===================================================================== */
+  .dir-b.light { --bg: #F7F8FA; --fg: #0B1220; --muted: #475569; --accent: #1D4ED8; --hi: #C8F03C; --line: #D7DCE5; --card: #FFFFFF; }
+  .dir-b.dark  { --bg: #0B0F1A; --fg: #E6EAF2; --muted: #94A3B8; --accent: #7DA6FF; --hi: #D4FF4F; --line: #1E2636; --card: #111727; }
+  .dir-b { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+  .dir-b .nav, .dir-b .eyebrow, .dir-b .foot, .dir-b .cap, .dir-b .hint, .dir-b .label { font-family: "IBM Plex Mono", monospace; }
+  .dir-b h3, .dir-b .big { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: -.04em; }
+  .dir-b .preview h3 { font-size: clamp(38px, 5.4vw, 60px); }
+  .dir-b .preview { background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--fg) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--fg) 6%, transparent) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%, 100% 64px; }
+  .dir-b .preview .eyebrow::before { content: "01 / "; color: var(--accent); }
+  .dir-b .hook mark { background: var(--hi); color: #0B1220; padding: 0 4px; }
+  .dir-b .btn { border-radius: 6px; }
+  .dir-b .btn.primary { background: var(--accent); color: #fff; }
+  .dir-b.dark .btn.primary { background: var(--fg); color: var(--bg); }
+  .dir-b .btn.ghost { color: var(--fg); border-color: var(--line); background: var(--card); }
+  .dir-b .btn.ghost:hover { border-color: var(--accent); }
+  .dir-b .portrait { background: var(--card); border: 1px solid var(--line); border-radius: 6px; }
+  .dir-b .portrait::before { content: ""; position: absolute; inset: 0; background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--accent) 18%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--accent) 18%, transparent) 1px, transparent 1px); background-size: 20px 20px; }
+  .dir-b .portrait .corner { position: absolute; width: 12px; height: 12px; border: 2px solid var(--accent); }
+  .dir-b .portrait .corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+  .dir-b .portrait .corner.br { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+  .dir-b .portrait .mark { position: relative; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); }
+  /* Signature : grille qui se dessine + halo curseur */
+  .gridline { width: 86%; height: 72%; }
+  .gridline line { stroke: var(--line); stroke-width: 1; stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 2.4s ease-out forwards infinite alternate; }
+  .gridline line:nth-child(odd) { animation-delay: .15s; }
+  .gridline .ax { stroke: var(--accent); stroke-width: 2; animation-delay: .4s; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .motion .demo.halo::after { content: ""; position: absolute; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%); pointer-events: none; opacity: 0; transition: opacity .3s; left: var(--mx, 50%); top: var(--my, 50%); transform: translate(-50%, -50%); }
+  .motion:hover .demo.halo::after { opacity: 1; }
+  /* Signature : connecteurs de dépendances */
+  .deps { width: 88%; height: 76%; }
+  .deps rect { fill: var(--card); stroke: var(--line); stroke-width: 1; rx: 6; transition: stroke .3s; }
+  .deps path { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 160; stroke-dashoffset: 0; transition: stroke .3s; }
+  .motion:hover .deps path { stroke: var(--accent); animation: flow 1.2s linear infinite; }
+  .motion:hover .deps rect { stroke: var(--accent); }
+  @keyframes flow { to { stroke-dashoffset: -160; } }
+  .deps text { font: 500 10px "IBM Plex Mono", monospace; fill: var(--muted); }
+  /* Signature : compteur odomètre */
+  @property --n { syntax: "<integer>"; inherits: false; initial-value: 0; }
+  .odo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 64px; letter-spacing: -.04em; line-height: 1; display: flex; align-items: baseline; gap: 6px; }
+  .odo .n { --n: 0; animation: count 2.6s cubic-bezier(.2,.8,.2,1) infinite alternate; counter-reset: n var(--n); }
+  .odo .n::after { content: counter(n); }
+  @keyframes count { to { --n: 10; } }
+  .odo small { font: 500 12px "IBM Plex Mono", monospace; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+  .odo .plus { color: var(--accent); }
+
+  /* =====================================================================
+     DIRECTION C — « Atelier »  (chaleur humaine, matière, fil rouge)
+     ===================================================================== */
+  .dir-c.light { --bg: #F4EEE6; --fg: #2B2420; --muted: #6E615A; --primary: #2F5D50; --secondary: #A85A3C; --accent: #B8336A; --line: #E0D6C9; --card: #FBF7F1; }
+  .dir-c.dark  { --bg: #1D1917; --fg: #F1E9DF; --muted: #B8ABA0; --primary: #8FC7B3; --secondary: #E39A7B; --accent: #F06FA3; --line: #332C28; --card: #251F1C; }
+  .dir-c { font-family: Figtree, system-ui, sans-serif; }
+  .dir-c .nav, .dir-c .eyebrow, .dir-c .foot, .dir-c .cap, .dir-c .hint { font-family: Figtree, sans-serif; letter-spacing: .06em; }
+  .dir-c h3, .dir-c .big { font-family: Fraunces, Georgia, serif; font-variation-settings: "SOFT" 60, "WONK" 1, "opsz" 144; font-weight: 500; letter-spacing: -.02em; }
+  .dir-c .preview h3 { font-size: clamp(40px, 5.6vw, 62px); }
+  .dir-c .preview h3 em { font-style: italic; color: var(--primary); font-weight: 400; }
+  .dir-c .preview { isolation: isolate; }
+  .dir-c .preview::before, .dir-c .preview::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; filter: blur(48px); opacity: .55; }
+  .dir-c .preview::before { width: 320px; height: 320px; right: -80px; top: -60px; background: var(--primary); animation: drift 14s ease-in-out infinite alternate; }
+  .dir-c .preview::after { width: 240px; height: 240px; left: -60px; bottom: -80px; background: var(--secondary); animation: drift 18s ease-in-out infinite alternate-reverse; }
+  .dir-c.dark .preview::before, .dir-c.dark .preview::after { opacity: .28; }
+  @keyframes drift { to { transform: translate(-40px, 30px) scale(1.15); } }
+  .dir-c .btn { border-radius: 999px; }
+  .dir-c .btn.primary { background: var(--primary); color: #fff; }
+  .dir-c.dark .btn.primary { color: var(--bg); }
+  .dir-c .btn.ghost { color: var(--fg); border-color: var(--line); background: color-mix(in srgb, var(--card) 70%, transparent); }
+  .dir-c .btn.ghost:hover { border-color: var(--fg); }
+  .dir-c .portrait { background: linear-gradient(160deg, var(--card), color-mix(in srgb, var(--secondary) 25%, var(--card))); border-radius: 58% 42% 60% 40% / 50% 55% 45% 50%; border: 1px solid var(--line); animation: breathe 9s ease-in-out infinite; }
+  @keyframes breathe { 50% { border-radius: 45% 55% 42% 58% / 55% 45% 55% 45%; } }
+  .dir-c .portrait .mark { position: relative; font-family: Fraunces, serif; font-style: italic; font-size: 64px; color: var(--primary); }
+  .dir-c .portrait .cap { text-align: center; left: 18%; right: 18%; bottom: 22px; }
+  /* Signature : fil rouge dessiné au scroll */
+  .thread { width: 90%; height: 80%; }
+  .thread path { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 620; stroke-dashoffset: 620; transition: stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1); }
+  .motion:hover .thread path { stroke-dashoffset: 0; }
+  .thread circle { fill: var(--bg); stroke: var(--primary); stroke-width: 2; }
+  .thread text { font: 600 10px Figtree, sans-serif; fill: var(--muted); letter-spacing: .06em; }
+  /* Signature : teinte qui change par section */
+  .tint { width: 86%; height: 72%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .tint div { border-radius: 10px; border: 1px solid var(--line); background: var(--card); position: relative; overflow: hidden; }
+  .tint div::before { content: ""; position: absolute; inset: auto -30% -40% -30%; height: 90%; border-radius: 50%; filter: blur(14px); opacity: .7; animation: tintcycle 6s ease-in-out infinite; }
+  .tint div:nth-child(1)::before { background: var(--primary); animation-delay: 0s; }
+  .tint div:nth-child(2)::before { background: var(--secondary); animation-delay: -1.5s; }
+  .tint div:nth-child(3)::before { background: var(--accent); animation-delay: -3s; }
+  .tint div:nth-child(4)::before { background: var(--primary); animation-delay: -4.5s; }
+  @keyframes tintcycle { 0%, 100% { transform: translateY(40%); opacity: .2; } 25% { transform: translateY(0); opacity: .8; } 50% { transform: translateY(40%); opacity: .2; } }
+  .tint span { position: absolute; top: 8px; left: 8px; font: 600 10px Figtree, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  /* Signature : portrait qui respire + cartes douces */
+  .soft { display: flex; gap: 14px; align-items: center; }
+  .soft .blob { width: 84px; height: 104px; background: linear-gradient(160deg, var(--card), color-mix(in srgb, var(--secondary) 30%, var(--card))); border: 1px solid var(--line); border-radius: 58% 42% 60% 40% / 50% 55% 45% 50%; animation: breathe 6s ease-in-out infinite; transition: transform .4s ease; }
+  .motion:hover .soft .blob { transform: scale(1.06) rotate(-3deg); }
+  .soft .card { width: 120px; height: 84px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s; box-shadow: 0 1px 2px rgba(0,0,0,.04); display: grid; align-content: end; padding: 10px; gap: 6px; }
+  .soft .card i { display: block; height: 6px; border-radius: 3px; background: var(--line); }
+  .soft .card i:first-child { width: 50%; background: var(--primary); }
+  .motion:hover .soft .card { transform: translateY(-6px) rotate(1.5deg); box-shadow: 0 16px 32px rgba(43,36,32,.12); }
+
+  /* ---------- Reduced motion : état final lisible, sans mouvement ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    html { scroll-behavior: auto; }
+    .unblock .w { color: var(--fg); } .unblock .w::after { transform: scaleX(0); }
+    .gridline line, .thread path { stroke-dashoffset: 0; }
+    .odo .n { --n: 10; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap shell-header">
+  <div class="kicker">Étape 1 · Directions artistiques · 06 oct. 2026</div>
+  <h1>Trois façons de dire « j'interviens là où ça coince »</h1>
+  <p>Trois directions volontairement contrastées pour le site de Djamel Labani, LBN Consulting et Le Berceau de Location. Même structure one-page, mêmes exigences (WCAG AA, clair/sombre, mobile first) : seule l'intention change. Chaque aperçu est montré en clair et en sombre, avec les contrastes mesurés. Les démos de micro-interactions réagissent au survol.</p>
+  <nav class="shell-nav" aria-label="Directions">
+    <a href="#dir-a">A · Manifeste</a>
+    <a href="#dir-b">B · Système</a>
+    <a href="#dir-c">C · Atelier</a>
+    <a href="#synthese">Synthèse et recommandation</a>
+  </nav>
+</header>
+
+<!-- ======================================================= A ======== -->
+<section class="wrap direction" id="dir-a" aria-labelledby="h-a">
+  <div class="direction-head">
+    <div>
+      <div class="num">Direction A · Exaggerated minimalism × éditorial</div>
+      <h2 id="h-a">Manifeste <em>— le site comme une prise de parole</em></h2>
+      <p>La typographie est le visuel. Phrases courtes, grands blancs, un seul accent couleur, papier chaud. Les problèmes que vous débloquez (roadmap floue, silos…) sont écrits en toutes lettres et se « débloquent » sous les yeux du visiteur. Les sections se lisent comme les chapitres d'un article long, avec les années du parcours qui restent collées pendant le défilement.</p>
+      <p>Référence de ton : la presse d'opinion, les pages « manifeste » des studios. Zéro illustration décorative, la photo portrait est le seul visuel.</p>
+    </div>
+    <aside class="speaks">
+      <strong>Ce que ça dit de vous</strong>
+      <ul>
+        <li>Un praticien qui a un point de vue et l'assume.</li>
+        <li>Rigueur et sobriété : rien à prouver par l'effet.</li>
+        <li>Risque : peut paraître austère si les textes ne sont pas tenus au cordeau. Le contenu doit être excellent, il le sera visible.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="block-title">Aperçu hero · clair et sombre</div>
+  <div class="previews">
+    <div class="preview dir-a light">
+      <span class="mode-tag">Clair</span>
+      <div class="nav"><span class="brand">Djamel Labani</span><span class="sp"></span><span>À propos</span><span>Expertises</span><span>Parcours</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Coach Produit &amp; Startupeur engagé · Lille</p>
+          <h3>Là où <em>ça coince</em>,<br>j'interviens.</h3>
+          <p class="hook">Roadmap floue, stratégie mal ancrée, discovery absente, équipes en silos : <span>j'aide les équipes produit à débloquer durablement.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Me contacter sur LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">Découvrir mon parcours</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="mark">D.</span><span class="cap">portraits/hero.jpg · à venir</span></div>
+      </div>
+      <div class="foot"><span>LBN Consulting · Le Berceau de Location</span><span>↓ défiler</span></div>
+    </div>
+    <div class="preview dir-a dark">
+      <span class="mode-tag">Sombre</span>
+      <div class="nav"><span class="brand">Djamel Labani</span><span class="sp"></span><span>About</span><span>Expertise</span><span>Journey</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Product coach &amp; committed founder · Lille</p>
+          <h3>I step in where<br>things <em>get stuck</em>.</h3>
+          <p class="hook">Blurry roadmap, strategy that never lands, no discovery, siloed teams: <span>I help product teams get unstuck, for good.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Reach me on LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">See my journey</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="mark">D.</span><span class="cap">portraits/hero.jpg · coming</span></div>
+      </div>
+      <div class="foot"><span>LBN Consulting · Le Berceau de Location</span><span>↓ scroll</span></div>
+    </div>
+  </div>
+
+  <div class="block-title">Palette</div>
+  <div class="palettes">
+    <div class="palette"><div class="ph"><span>Clair</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#F6F2EA">
+        <div class="sw" style="background:#F6F2EA;color:#141210"><span class="role">Background · papier</span><span class="hex">#F6F2EA</span><span class="cr" data-fg="#141210" data-label="texte"></span></div>
+        <div class="sw" style="background:#141210;color:#F6F2EA"><span class="role">Primary / Text · encre</span><span class="hex">#141210</span><span class="cr" data-fg="#141210"></span></div>
+        <div class="sw" style="background:#6B645B;color:#F6F2EA"><span class="role">Secondary · gris chaud</span><span class="hex">#6B645B</span><span class="cr" data-fg="#6B645B"></span></div>
+        <div class="sw" style="background:#B8381A;color:#FFFFFF"><span class="role">Accent · vermillon</span><span class="hex">#B8381A</span><span class="cr" data-fg="#B8381A"></span></div>
+        <div class="sw" style="background:#FFFDF8;color:#141210;border-left:1px solid #D9D2C5"><span class="role">Surface · carte</span><span class="hex">#FFFDF8</span><span class="cr" data-fg="#141210" data-on="#FFFDF8"></span></div>
+      </div>
+    </div>
+    <div class="palette"><div class="ph"><span>Sombre</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#121110">
+        <div class="sw on-dark" style="background:#121110;color:#F1ECE2"><span class="role">Background · charbon</span><span class="hex">#121110</span><span class="cr" data-fg="#F1ECE2" data-label="texte"></span></div>
+        <div class="sw" style="background:#F1ECE2;color:#121110"><span class="role">Primary / Text · os</span><span class="hex">#F1ECE2</span><span class="cr" data-fg="#F1ECE2"></span></div>
+        <div class="sw" style="background:#A39B8F;color:#121110"><span class="role">Secondary · grège</span><span class="hex">#A39B8F</span><span class="cr" data-fg="#A39B8F"></span></div>
+        <div class="sw" style="background:#FF7A4D;color:#121110"><span class="role">Accent · corail (texte seul)</span><span class="hex">#FF7A4D</span><span class="cr" data-fg="#FF7A4D"></span></div>
+        <div class="sw on-dark" style="background:#1A1816;color:#F1ECE2"><span class="role">Surface · carte</span><span class="hex">#1A1816</span><span class="cr" data-fg="#F1ECE2" data-on="#1A1816"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-title">Typographie · Instrument Serif + Manrope + JetBrains Mono</div>
+  <div class="type-grid">
+    <div class="specimen dir-a">
+      <p class="big">Une posture de praticien, <em>pas de théoricien.</em></p>
+      <p class="body" style="font-family:Manrope">Depuis plus de 10 ans, j'accompagne des équipes produit dans des environnements exigeants pour structurer leur stratégie, accélérer leur delivery et connecter objectifs et impact.</p>
+      <p class="label" style="font-family:'JetBrains Mono'">2016 — 2020 · Scrum Master puis coach agile</p>
+    </div>
+    <div class="type-roles"><dl>
+      <dt>Display</dt><dd><strong>Instrument Serif</strong> Titres et accroches, régulier et italique. Une seule graisse : la taille fait la hiérarchie.</dd>
+      <dt>Texte</dt><dd><strong>Manrope</strong> Corps de texte et boutons, 400 à 700. Neutre, large, très lisible à 16–18 px.</dd>
+      <dt>Étiquettes</dt><dd><strong>JetBrains Mono</strong> Années, numéros de section, légendes. Donne le côté « document de travail ».</dd>
+    </dl></div>
+  </div>
+
+  <div class="block-title">Micro-interactions signature · survolez les cartes</div>
+  <div class="motions dir-a light">
+    <div class="motion">
+      <div class="demo"><p class="unblock"><span class="w">Roadmap floue,</span> <span class="w">stratégie mal ancrée,</span> <span class="w">discovery absente,</span> <span class="w">équipes en silos :</span> <span class="w">débloquées.</span></p><span class="hint">hover</span></div>
+      <div class="txt"><strong>Les mots qui se débloquent</strong><span>Dans le hero, les quatre symptômes apparaissent barrés puis la rature se retire mot à mot (500 ms, décalage 120 ms). Le dernier mot prend l'accent. Un seul effet, qui raconte le métier.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><div class="readline"><span>01 À propos</span><span>02 Expertises</span><span>03 Parcours</span></div></div>
+      <div class="txt"><strong>Le trait de lecture</strong><span>Dans la navigation, un trait vermillon de 2 px glisse vers la section active pendant le défilement, comme un repère de lecture dans la marge. Remplace toute icône ou soulignement.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><div class="sticky-years"><div class="y"><b>2025</b><b>2023</b></div><div class="rows"><div></div><div></div><div></div><div></div><div></div><div></div></div></div></div>
+      <div class="txt"><strong>Les années collées</strong><span>Dans le parcours, l'année reste fixe à gauche (position: sticky) pendant que les missions défilent à droite, puis cède la place à la suivante. Lisible, zéro JavaScript.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= B ======== -->
+<section class="wrap direction" id="dir-b" aria-labelledby="h-b">
+  <div class="direction-head">
+    <div>
+      <div class="num">Direction B · Swiss minimal × précision technique</div>
+      <h2 id="h-b">Système <em>— la structure est le message</em></h2>
+      <p>Une grille de 12 colonnes visible en filigrane, des sections numérotées 01 à 07, des annotations en mono, un bleu cobalt comme seul accent et une pointe de jaune acide pour surligner. L'esthétique des schémas d'architecture et des roadmaps bien tenues : tout est aligné, mesuré, dépendances comprises. Un clin d'œil assumé à vos origines systèmes et réseaux.</p>
+      <p>Référence de ton : documentation technique soignée, affiches suisses, interfaces d'outils produit haut de gamme.</p>
+    </div>
+    <aside class="speaks">
+      <strong>Ce que ça dit de vous</strong>
+      <ul>
+        <li>Quelqu'un qui structure, mesure et relie (OKR, DORA, dépendances).</li>
+        <li>Crédibilité immédiate auprès des DSI et des équipes tech.</li>
+        <li>Risque : plus froid, moins « coach » ; la chaleur doit venir de la photo et des textes à la première personne.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="block-title">Aperçu hero · clair et sombre</div>
+  <div class="previews">
+    <div class="preview dir-b light">
+      <span class="mode-tag">Clair</span>
+      <div class="nav"><span class="brand">D. Labani</span><span class="sp"></span><span>01 À propos</span><span>02 Expertises</span><span>03 Parcours</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Coach Produit &amp; Startupeur engagé</p>
+          <h3>Djamel Labani</h3>
+          <p class="hook">J'interviens là où ça coince. <mark>Roadmap floue</mark>, stratégie mal ancrée, discovery absente, équipes en silos : <span>j'aide les équipes produit à débloquer durablement.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Me contacter sur LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">Découvrir mon parcours</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="corner tl"></span><span class="corner br"></span><span class="mark">IMG_HERO · 3:4</span><span class="cap">portraits/hero.jpg · à venir</span></div>
+      </div>
+      <div class="foot"><span>LBN Consulting — EURL · Lille</span><span>§ 00 / 07</span></div>
+    </div>
+    <div class="preview dir-b dark">
+      <span class="mode-tag">Sombre</span>
+      <div class="nav"><span class="brand">D. Labani</span><span class="sp"></span><span>01 About</span><span>02 Expertise</span><span>03 Journey</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Product coach &amp; committed founder</p>
+          <h3>Djamel Labani</h3>
+          <p class="hook">I step in where things get stuck. <mark>Blurry roadmap</mark>, strategy that never lands, no discovery, siloed teams: <span>I help product teams get unstuck, for good.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Reach me on LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">See my journey</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="corner tl"></span><span class="corner br"></span><span class="mark">IMG_HERO · 3:4</span><span class="cap">portraits/hero.jpg · coming</span></div>
+      </div>
+      <div class="foot"><span>LBN Consulting — EURL · Lille</span><span>§ 00 / 07</span></div>
+    </div>
+  </div>
+
+  <div class="block-title">Palette</div>
+  <div class="palettes">
+    <div class="palette"><div class="ph"><span>Clair</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#F7F8FA">
+        <div class="sw" style="background:#F7F8FA;color:#0B1220"><span class="role">Background · gris froid</span><span class="hex">#F7F8FA</span><span class="cr" data-fg="#0B1220" data-label="texte"></span></div>
+        <div class="sw" style="background:#0B1220;color:#F7F8FA"><span class="role">Text · bleu nuit</span><span class="hex">#0B1220</span><span class="cr" data-fg="#0B1220"></span></div>
+        <div class="sw" style="background:#1D4ED8;color:#FFFFFF"><span class="role">Primary · cobalt</span><span class="hex">#1D4ED8</span><span class="cr" data-fg="#1D4ED8"></span></div>
+        <div class="sw" style="background:#475569;color:#FFFFFF"><span class="role">Secondary · ardoise</span><span class="hex">#475569</span><span class="cr" data-fg="#475569"></span></div>
+        <div class="sw" style="background:#C8F03C;color:#0B1220"><span class="role">Accent · acide (surlignage)</span><span class="hex">#C8F03C</span><span class="cr" data-fg="#0B1220" data-on="#C8F03C" data-label="texte dessus"></span></div>
+      </div>
+    </div>
+    <div class="palette"><div class="ph"><span>Sombre</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#0B0F1A">
+        <div class="sw on-dark" style="background:#0B0F1A;color:#E6EAF2"><span class="role">Background · nuit</span><span class="hex">#0B0F1A</span><span class="cr" data-fg="#E6EAF2" data-label="texte"></span></div>
+        <div class="sw" style="background:#E6EAF2;color:#0B0F1A"><span class="role">Text · givre</span><span class="hex">#E6EAF2</span><span class="cr" data-fg="#E6EAF2"></span></div>
+        <div class="sw" style="background:#7DA6FF;color:#0B0F1A"><span class="role">Primary · cobalt clair</span><span class="hex">#7DA6FF</span><span class="cr" data-fg="#7DA6FF"></span></div>
+        <div class="sw" style="background:#94A3B8;color:#0B0F1A"><span class="role">Secondary · ardoise claire</span><span class="hex">#94A3B8</span><span class="cr" data-fg="#94A3B8"></span></div>
+        <div class="sw" style="background:#D4FF4F;color:#0B0F1A"><span class="role">Accent · acide (surlignage)</span><span class="hex">#D4FF4F</span><span class="cr" data-fg="#0B0F1A" data-on="#D4FF4F" data-label="texte dessus"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-title">Typographie · Space Grotesk + IBM Plex Sans + IBM Plex Mono</div>
+  <div class="type-grid">
+    <div class="specimen dir-b">
+      <p class="big">Relier vision et exécution.</p>
+      <p class="body" style="font-family:'IBM Plex Sans'">Cadrage d'initiatives, priorisation, OKR, Quarter Planning à l'échelle, indicateurs DORA : des outils, au service d'une seule question — qu'est-ce qui crée de la valeur, et comment on le sait.</p>
+      <p class="label">§ 02 · Expertises · 06 / 06</p>
+    </div>
+    <div class="type-roles"><dl>
+      <dt>Display</dt><dd><strong>Space Grotesk</strong> Titres, 700, interlettrage serré. Géométrique avec du caractère, jamais vu sur un template.</dd>
+      <dt>Texte</dt><dd><strong>IBM Plex Sans</strong> Corps, 400 à 600. Conçue pour la documentation, excellente en petit corps.</dd>
+      <dt>Étiquettes</dt><dd><strong>IBM Plex Mono</strong> Numérotation, dates, annotations de grille. Même famille que le texte : cohérence totale.</dd>
+    </dl></div>
+  </div>
+
+  <div class="block-title">Micro-interactions signature · survolez les cartes</div>
+  <div class="motions dir-b light">
+    <div class="motion">
+      <div class="demo halo"><svg class="gridline" viewBox="0 0 300 120" aria-hidden="true">
+        <line x1="25" y1="0" x2="25" y2="120"/><line x1="75" y1="0" x2="75" y2="120"/><line x1="125" y1="0" x2="125" y2="120"/><line x1="175" y1="0" x2="175" y2="120"/><line x1="225" y1="0" x2="225" y2="120"/><line x1="275" y1="0" x2="275" y2="120"/>
+        <line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="90" x2="300" y2="90"/><line class="ax" x1="0" y1="60" x2="300" y2="60"/>
+      </svg><span class="hint">hover · move</span></div>
+      <div class="txt"><strong>La grille qui se dessine</strong><span>Au chargement, les lignes de la grille se tracent (stroke-dashoffset, 600 ms) puis restent en filigrane. Au survol, un halo cobalt révèle la grille autour du curseur. Désactivé sous reduced-motion : grille affichée d'emblée.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><svg class="deps" viewBox="0 0 300 130" aria-hidden="true">
+        <path d="M70 35 C 110 35, 110 95, 150 95"/><path d="M70 95 C 110 95, 110 35, 150 35"/><path d="M230 35 C 250 35, 250 95, 230 95"/>
+        <rect x="10" y="20" width="60" height="30"/><rect x="10" y="80" width="60" height="30"/><rect x="150" y="20" width="80" height="30"/><rect x="150" y="80" width="80" height="30"/>
+        <text x="18" y="39">Vision</text><text x="18" y="99">OKR</text><text x="158" y="39">Roadmap</text><text x="158" y="99">Delivery</text>
+      </svg><span class="hint">hover</span></div>
+      <div class="txt"><strong>Les dépendances qui s'allument</strong><span>Dans Expertises, les six cartes sont reliées par des connecteurs discrets. Au survol d'une carte, ses liens s'animent en pointillés qui circulent : la gestion des dépendances multi-équipes, montrée plutôt qu'expliquée.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><div class="odo"><span class="n"></span><span class="plus">+</span><small>ans de<br>pratique</small></div></div>
+      <div class="txt"><strong>Le compteur</strong><span>Les chiffres clés (10+ ans, 300+ participants à l'Agile Tour) défilent à l'entrée dans le viewport, en 1,2 s, puis se figent. Une seule fois par visite. Sous reduced-motion, le chiffre final est affiché directement.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= C ======== -->
+<section class="wrap direction" id="dir-c" aria-labelledby="h-c">
+  <div class="direction-head">
+    <div>
+      <div class="num">Direction C · Nature distilled × organique</div>
+      <h2 id="h-c">Atelier <em>— la chaleur du praticien, le fil rouge du fondateur</em></h2>
+      <p>Lin, terre cuite, vert pin et une touche de framboise qui fait écho au magenta du Berceau de Location. Une serif souple à axes variables (Fraunces) pour les titres, des formes organiques qui dérivent lentement en arrière-plan et changent de teinte à chaque section. Un fil continu se dessine au défilement et relie À propos, Parcours, Berceau et LBN : vous êtes littéralement le fil rouge.</p>
+      <p>Référence de ton : les marques d'économie circulaire soignées, les studios de design indépendants, la photo argentique.</p>
+    </div>
+    <aside class="speaks">
+      <strong>Ce que ça dit de vous</strong>
+      <ul>
+        <li>Un coach proche des gens, qui vit ce qu'il accompagne.</li>
+        <li>Fait le pont naturel entre conseil et entrepreneuriat à impact.</li>
+        <li>Risque : glisser vers le « bien-être » ; les textes et la grille doivent rester tenus pour garder la crédibilité DSI.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="block-title">Aperçu hero · clair et sombre</div>
+  <div class="previews">
+    <div class="preview dir-c light">
+      <span class="mode-tag">Clair</span>
+      <div class="nav"><span class="brand">Djamel Labani</span><span class="sp"></span><span>À propos</span><span>Expertises</span><span>Parcours</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Coach Produit &amp; Startupeur engagé</p>
+          <h3>Débloquer, <em>durablement.</em></h3>
+          <p class="hook">J'interviens là où ça coince. Roadmap floue, stratégie mal ancrée, discovery absente, équipes en silos : <span>j'aide les équipes produit à débloquer durablement.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Me contacter sur LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">Découvrir mon parcours</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="mark">D</span><span class="cap">portraits/hero.jpg · à venir</span></div>
+      </div>
+      <div class="foot"><span>Lille · LBN Consulting · Le Berceau de Location</span><span>↓</span></div>
+    </div>
+    <div class="preview dir-c dark">
+      <span class="mode-tag">Sombre</span>
+      <div class="nav"><span class="brand">Djamel Labani</span><span class="sp"></span><span>About</span><span>Expertise</span><span>Journey</span><span>FR / EN</span></div>
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Product coach &amp; committed founder</p>
+          <h3>Unstuck, <em>for good.</em></h3>
+          <p class="hook">I step in where things get stuck. Blurry roadmap, strategy that never lands, no discovery, siloed teams: <span>I help product teams get unstuck, for good.</span></p>
+          <div class="ctas">
+            <a class="btn primary" href="#">Reach me on LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#">See my journey</a>
+          </div>
+        </div>
+        <div class="portrait"><span class="mark">D</span><span class="cap">portraits/hero.jpg · coming</span></div>
+      </div>
+      <div class="foot"><span>Lille · LBN Consulting · Le Berceau de Location</span><span>↓</span></div>
+    </div>
+  </div>
+
+  <div class="block-title">Palette</div>
+  <div class="palettes">
+    <div class="palette"><div class="ph"><span>Clair</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#F4EEE6">
+        <div class="sw" style="background:#F4EEE6;color:#2B2420"><span class="role">Background · lin</span><span class="hex">#F4EEE6</span><span class="cr" data-fg="#2B2420" data-label="texte"></span></div>
+        <div class="sw" style="background:#2B2420;color:#F4EEE6"><span class="role">Text · espresso</span><span class="hex">#2B2420</span><span class="cr" data-fg="#2B2420"></span></div>
+        <div class="sw" style="background:#2F5D50;color:#FFFFFF"><span class="role">Primary · vert pin</span><span class="hex">#2F5D50</span><span class="cr" data-fg="#2F5D50"></span></div>
+        <div class="sw" style="background:#A85A3C;color:#FFFFFF"><span class="role">Secondary · terre cuite</span><span class="hex">#A85A3C</span><span class="cr" data-fg="#A85A3C"></span></div>
+        <div class="sw" style="background:#B8336A;color:#FFFFFF"><span class="role">Accent · framboise (écho Berceau)</span><span class="hex">#B8336A</span><span class="cr" data-fg="#B8336A"></span></div>
+      </div>
+    </div>
+    <div class="palette"><div class="ph"><span>Sombre</span><span>contraste sur fond</span></div>
+      <div class="swatches" data-bg="#1D1917">
+        <div class="sw on-dark" style="background:#1D1917;color:#F1E9DF"><span class="role">Background · cacao</span><span class="hex">#1D1917</span><span class="cr" data-fg="#F1E9DF" data-label="texte"></span></div>
+        <div class="sw" style="background:#F1E9DF;color:#1D1917"><span class="role">Text · crème</span><span class="hex">#F1E9DF</span><span class="cr" data-fg="#F1E9DF"></span></div>
+        <div class="sw" style="background:#8FC7B3;color:#1D1917"><span class="role">Primary · sauge</span><span class="hex">#8FC7B3</span><span class="cr" data-fg="#8FC7B3"></span></div>
+        <div class="sw" style="background:#E39A7B;color:#1D1917"><span class="role">Secondary · abricot</span><span class="hex">#E39A7B</span><span class="cr" data-fg="#E39A7B"></span></div>
+        <div class="sw" style="background:#F06FA3;color:#1D1917"><span class="role">Accent · rose (écho Berceau)</span><span class="hex">#F06FA3</span><span class="cr" data-fg="#F06FA3"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-title">Typographie · Fraunces + Figtree</div>
+  <div class="type-grid">
+    <div class="specimen dir-c">
+      <p class="big">Je vis de l'intérieur <em style="font-style:italic;font-weight:400">ce que j'accompagne.</em></p>
+      <p class="body" style="font-family:Figtree">En parallèle du conseil, je co-fonde Le Berceau de Location : ses arbitrages constants, sa discovery, son go-to-market. Moins de dépenses pour les familles, moins de déchets pour la planète.</p>
+      <p class="label" style="font-family:Figtree;font-weight:600">Depuis juin 2025 · Co-fondateur &amp; Head of Product</p>
+    </div>
+    <div class="type-roles"><dl>
+      <dt>Display</dt><dd><strong>Fraunces</strong> Titres, axes variables SOFT et WONK activés pour une serif ronde et vivante. Italique pour l'emphase.</dd>
+      <dt>Texte</dt><dd><strong>Figtree</strong> Corps, boutons et étiquettes, 400 à 700. Humaniste, chaleureuse, très bonne lisibilité.</dd>
+      <dt>Étiquettes</dt><dd><strong>Figtree 600</strong> en capitales espacées. Pas de mono ici : on garde la douceur jusque dans les détails.</dd>
+    </dl></div>
+  </div>
+
+  <div class="block-title">Micro-interactions signature · survolez les cartes</div>
+  <div class="motions dir-c light">
+    <div class="motion">
+      <div class="demo"><svg class="thread" viewBox="0 0 300 130" aria-hidden="true">
+        <path d="M20 100 C 70 100, 70 30, 120 30 S 170 100, 220 100 S 260 30, 285 30"/>
+        <circle cx="20" cy="100" r="5"/><circle cx="120" cy="30" r="5"/><circle cx="220" cy="100" r="5"/><circle cx="285" cy="30" r="5"/>
+        <text x="8" y="122">À PROPOS</text><text x="96" y="18">PARCOURS</text><text x="198" y="122">BERCEAU</text><text x="270" y="18">LBN</text>
+      </svg><span class="hint">hover</span></div>
+      <div class="txt"><strong>Le fil rouge</strong><span>Un trait framboise se dessine au fil du défilement et relie les sections dans la marge, de À propos jusqu'à LBN Consulting. La métaphore du brief, prise au mot. Sous reduced-motion, le trait est dessiné en entier.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><div class="tint"><div><span>À propos</span></div><div><span>Parcours</span></div><div><span>Berceau</span></div><div><span>LBN</span></div></div></div>
+      <div class="txt"><strong>La teinte qui suit la section</strong><span>Deux formes floues dérivent très lentement en arrière-plan (14 à 18 s) et changent de couleur par section : vert pin pour le conseil, terre cuite pour le parcours, framboise pour le Berceau. Le visiteur sent le changement sans le voir.</span></div>
+    </div>
+    <div class="motion">
+      <div class="demo"><div class="soft"><div class="blob"></div><div class="card"><i></i><i></i><i></i></div></div><span class="hint">hover</span></div>
+      <div class="txt"><strong>Le portrait qui respire</strong><span>Le masque organique du portrait change doucement de forme (9 s) et les cartes d'expertise se soulèvent avec une légère rotation au survol. Tout est lent, rien ne saute.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= SYNTHÈSE ======== -->
+<section class="wrap synth" id="synthese" aria-labelledby="h-s">
+  <h2 id="h-s">Synthèse</h2>
+  <table>
+    <thead><tr><th>Critère</th><th>A · Manifeste</th><th>B · Système</th><th>C · Atelier</th></tr></thead>
+    <tbody>
+      <tr><td>Message dominant</td><td>Un point de vue, assumé</td><td>De la méthode, mesurable</td><td>De l'humain, qui vit ce qu'il accompagne</td></tr>
+      <tr><td>Équilibre vous / LBN / Berceau</td><td>Vous d'abord, les deux structures en chapitres</td><td>LBN très à l'aise, le Berceau un peu à l'étroit</td><td>Le Berceau très naturel, LBN à tenir par la grille</td></tr>
+      <tr><td>Cible qui réagira le mieux</td><td>Directions produit, fondateurs</td><td>DSI, directions techniques, grands comptes</td><td>Équipes, RH, écosystème startup et impact</td></tr>
+      <tr><td>Risque principal</td><td>Austérité si textes faibles</td><td>Froideur</td><td>Glissement « bien-être »</td></tr>
+      <tr><td>Dark mode</td><td>Très naturel</td><td>Très naturel</td><td>Bon, un peu moins différenciant</td></tr>
+      <tr><td>Performance / Lighthouse</td><td>Excellente (2 fontes + mono, CSS natif)</td><td>Excellente (SVG inline, CSS natif)</td><td>Bonne (blur de fond à surveiller sur mobile)</td></tr>
+      <tr><td>Animation</td><td>CSS natif uniquement</td><td>CSS + un peu de JS (IntersectionObserver)</td><td>CSS + un peu de JS pour le fil au scroll</td></tr>
+    </tbody>
+  </table>
+  <div class="reco">
+    <strong>Ma recommandation</strong>
+    <p>La direction A, Manifeste, avec deux emprunts : la numérotation des sections et les connecteurs de dépendances de B dans la section Expertises, et la teinte framboise de C réservée à la seule section Berceau de Location. C'est celle qui rend le mieux « c'est moi le fil rouge », qui démontre une exigence produit par la retenue, et qui tient Lighthouse 95+ sans effort puisque tout est CSS natif.</p>
+  </div>
+  <p class="common">Constantes quelle que soit la direction retenue : one-page FR/EN avec switch visible, mode clair/sombre selon le système, contrastes AA mesurés (badges ci-dessus, calculés en direct), focus visibles, cibles tactiles 44 px, icônes SVG uniquement, photos en AVIF/WebP avec tailles responsives, prefers-reduced-motion qui affiche l'état final sans mouvement, contenu dans des fichiers séparés.</p>
+</section>
+
+<script>
+  // Contrastes WCAG calculés en direct pour chaque pastille (fg sur fond de la palette, ou sur data-on).
+  (function () {
+    const lum = (hex) => {
+      const c = hex.replace('#', '');
+      const [r, g, b] = [0, 2, 4].map(i => parseInt(c.slice(i, i + 2), 16) / 255)
+        .map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const ratio = (a, b) => { const la = lum(a), lb = lum(b); return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05); };
+    document.querySelectorAll('.swatches').forEach(group => {
+      const bg = group.dataset.bg;
+      group.querySelectorAll('.cr').forEach(el => {
+        const r = ratio(el.dataset.fg, el.dataset.on || bg);
+        const level = r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : r >= 3 ? 'AA large' : 'non-texte';
+        const label = el.dataset.label ? el.dataset.label + ' ' : '';
+        el.textContent = `${label}${r.toFixed(1)}:1 · ${level}`;
+      });
+    });
+    // Halo curseur (direction B)
+    document.querySelectorAll('.demo.halo').forEach(d => {
+      d.addEventListener('pointermove', e => {
+        const r = d.getBoundingClientRect();
+        d.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        d.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  })();
+</script>
+</body>
+</html>

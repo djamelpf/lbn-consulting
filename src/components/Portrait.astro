@@ -1,0 +1,77 @@
+---
+/**
+ * Portrait with a technical frame (corner markers, grid overlay, caption).
+ *
+ * Drop your photos in src/assets/portraits/:
+ *   - hero.jpg  (used in the hero; square or 4:5 works best)
+ *   - about.jpg (optional; falls back to hero.jpg)
+ * Any missing file shows an elegant placeholder instead of breaking the build.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  alt: string;
+  variant: 'hero' | 'about';
+  caption?: string;
+  class?: string;
+}
+
+const { alt, variant, caption, class: className = '' } = Astro.props;
+
+const files = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/portraits/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true },
+);
+
+function find(name: string): ImageMetadata | undefined {
+  const key = Object.keys(files).find((k) => new RegExp(`/${name}\\.(jpg|jpeg|png|webp|avif)$`).test(k));
+  return key ? files[key]!.default : undefined;
+}
+
+const image = (variant === 'about' ? find('about') : undefined) ?? find('hero');
+
+const widths = variant === 'hero' ? [360, 540, 720, 1080] : [320, 480, 640];
+const sizes =
+  variant === 'hero'
+    ? '(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 92vw'
+    : '(min-width: 1024px) 26vw, (min-width: 640px) 40vw, 80vw';
+---
+
+<figure class:list={['relative m-0', className]}>
+  <div class="corners relative overflow-hidden rounded-md border border-line bg-bg-elevated">
+    {
+      image ? (
+        <Picture
+          src={image}
+          alt={alt}
+          width={widths[widths.length - 1]}
+          height={widths[widths.length - 1]}
+          widths={widths}
+          sizes={sizes}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpg"
+          loading={variant === 'hero' ? 'eager' : 'lazy'}
+          fetchpriority={variant === 'hero' ? 'high' : 'auto'}
+          decoding="async"
+          class="block aspect-square h-auto w-full object-cover"
+          pictureAttributes={{ class: 'block' }}
+        />
+      ) : (
+        <div
+          class="grid aspect-square w-full place-items-center bg-[length:1.5rem_1.5rem]"
+          style="background-image: linear-gradient(to right, var(--grid) 1px, transparent 1px), linear-gradient(to bottom, var(--grid) 1px, transparent 1px);"
+          role="img"
+          aria-label={alt}
+        >
+          <span class="label text-accent">{variant}.jpg</span>
+        </div>
+      )
+    }
+    <svg class="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <line class="draw-line" pathLength="1" x1="0" y1="66" x2="100" y2="66" stroke="var(--accent)" stroke-opacity="0.45" stroke-width="0.4" style="--draw-delay: 500ms" />
+      <line class="draw-line" pathLength="1" x1="33" y1="0" x2="33" y2="100" stroke="var(--accent)" stroke-opacity="0.45" stroke-width="0.4" style="--draw-delay: 700ms" />
+    </svg>
+  </div>
+  {caption && <figcaption class="label mt-3">{caption}</figcaption>}
+</figure>

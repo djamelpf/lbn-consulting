@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "title": "Djamel Labani — Coach Produit & Startupeur engagé, Lille",
+    "description": "Coach produit et product manager freelance depuis plus de 10 ans (retail, marketplace, fintech, énergie). J'interviens là où ça coince : roadmap, stratégie, discovery, équipes en silos. Fondateur de LBN Consulting, co-fondateur du Berceau de Location.",
+    "ogTitle": "Djamel Labani",
+    "ogSubtitle": "Coach Produit & Startupeur engagé",
+    "ogTagline": "J'interviens là où ça coince."
+  },
+  "a11y": {
+    "skipToContent": "Aller au contenu",
+    "mainNav": "Navigation principale",
+    "langSwitch": "Changer de langue",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "externalLink": "(nouvelle fenêtre)",
+    "portraitAlt": "Portrait en noir et blanc de Djamel Labani, bras croisés, souriant"
+  },
+  "nav": {
+    "items": [
+      { "id": "a-propos", "label": "À propos" },
+      { "id": "expertises", "label": "Expertises" },
+      { "id": "parcours", "label": "Parcours" },
+      { "id": "berceau", "label": "Le Berceau" },
+      { "id": "lbn", "label": "LBN Consulting" },
+      { "id": "contact", "label": "Contact" }
+    ],
+    "cta": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+  },
+  "hero": {
+    "eyebrow": "Coach Produit & Startupeur engagé",
+    "name": "Djamel Labani",
+    "role": "Coach Produit & Startupeur engagé",
+    "hook": "J'interviens là où ça coince.",
+    "symptoms": ["Roadmap floue", "stratégie mal ancrée", "discovery absente", "équipes en silos"],
+    "promise": "j'aide les équipes produit à débloquer durablement.",
+    "ctaPrimary": { "label": "Me contacter sur LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "ctaSecondary": { "label": "Découvrir mon parcours", "href": "#parcours" },
+    "scrollHint": "Défiler",
+    "meta": [
+      { "label": "Base", "value": "Lille, France" },
+      { "label": "Pratique", "value": "10+ ans" },
+      { "label": "Statut", "value": "Freelance · LBN Consulting" }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "paragraphs": [
+      "Depuis plus de 10 ans, j'accompagne des équipes produit dans des environnements exigeants (retail, marketplace, fintech, énergie) pour structurer leur stratégie, accélérer leur delivery et connecter objectifs et impact. Une posture de praticien, pas de théoricien.",
+      "Et je vis de l'intérieur ce que j'accompagne : en parallèle, je co-fonde Le Berceau de Location, avec ses arbitrages constants, sa discovery et son go-to-market.",
+      "Origines tech : développeur, puis ingénieur systèmes et réseaux, avant de basculer vers l'agilité et le produit en 2016."
+    ],
+    "facts": [
+      { "value": 10, "suffix": "+", "label": "ans auprès d'équipes produit" },
+      { "value": 4, "label": "secteurs : retail, marketplace, fintech, énergie" },
+      { "value": 2016, "label": "la bascule de la tech vers le produit" }
+    ]
+  },
+  "expertise": {
+    "title": "Expertises",
+    "intro": "Six terrains d'intervention, rarement isolés : une roadmap floue cache souvent une stratégie mal ancrée, et une delivery lente une discovery absente. Les liens entre les cartes montrent ces dépendances.",
+    "connectorsHint": "Survolez une carte pour voir ses dépendances.",
+    "items": [
+      {
+        "id": "strategie",
+        "icon": "compass",
+        "title": "Stratégie produit et vision",
+        "description": "Cadrage d'initiatives, priorisation, OKR pour relier vision et exécution.",
+        "tags": ["Cadrage", "Priorisation", "OKR"],
+        "links": ["roadmap", "discovery"]
+      },
+      {
+        "id": "roadmap",
+        "icon": "map",
+        "title": "Roadmap et backlog",
+        "description": "Structuration, arbitrages, pilotage par la valeur.",
+        "tags": ["Structuration", "Arbitrages", "Valeur"],
+        "links": ["strategie", "delivery"]
+      },
+      {
+        "id": "discovery",
+        "icon": "search",
+        "title": "Discovery produit",
+        "description": "Ateliers, Example Mapping, Gherkin, métriques : comprendre avant de construire.",
+        "tags": ["Ateliers", "Example Mapping", "Gherkin", "Métriques"],
+        "links": ["strategie", "echelle"]
+      },
+      {
+        "id": "echelle",
+        "icon": "layers",
+        "title": "Agilité à l'échelle",
+        "description": "SAFe, Nexus, Quarter Planning, synchronisation multi-équipes, gestion des dépendances.",
+        "tags": ["SAFe", "Nexus", "Quarter Planning", "Dépendances"],
+        "links": ["discovery", "delivery"]
+      },
+      {
+        "id": "delivery",
+        "icon": "gauge",
+        "title": "Delivery et performance",
+        "description": "Amélioration des processus, indicateurs DORA, démarche Accelerate.",
+        "tags": ["Processus", "DORA", "Accelerate"],
+        "links": ["roadmap", "echelle", "humain"]
+      },
+      {
+        "id": "humain",
+        "icon": "users",
+        "title": "Accompagnement humain",
+        "description": "Mentoring de PM et PO, conduite du changement, coaching de managers.",
+        "tags": ["Mentoring", "Changement", "Managers"],
+        "links": ["delivery"]
+      }
+    ],
+    "certifications": {
+      "title": "Certifications",
+      "items": ["Professional Scrum Master I", "Professional Scrum Product Owner I"]
+    }
+  },
+  "journey": {
+    "title": "Parcours",
+    "intro": "Version condensée. Le détail, mission par mission, est sur LinkedIn.",
+    "items": [
+      {
+        "period": "Depuis déc. 2025",
+        "role": "Coach Produit",
+        "org": "Boulanger",
+        "detail": "Facilitation du Quarter Planning à l'échelle de la DSI.",
+        "current": true
+      },
+      {
+        "period": "Depuis juin 2025",
+        "role": "Co-fondateur & Head of Product",
+        "org": "Le Berceau de Location",
+        "detail": "Discovery, go-to-market, arbitrages avec peu de ressources : le produit vu de l'intérieur.",
+        "current": true
+      },
+      {
+        "period": "2022 — 2026",
+        "role": "Coach agile puis Coach Produit",
+        "org": "ADEO / Leroy Merlin",
+        "detail": "Marketplace : cadre de pilotage par les OKR, refonte du processus de delivery des initiatives, montée en maturité produit."
+      },
+      {
+        "period": "2020 — 2022",
+        "role": "Consultant",
+        "org": "OCTO Technology",
+        "detail": "Missions Enercoop, CACEIS et Bouygues Construction : stratégie produit, agilité à l'échelle multi-pays, indicateurs DORA et démarche Accelerate."
+      },
+      {
+        "period": "2016 — 2020",
+        "role": "Scrum Master puis coach agile",
+        "org": "Publicis ETO, Auchan Retail, ADEO (via Extia)",
+        "detail": "Grands comptes internationaux, framework Nexus, OKR et gestion des dépendances sur un déploiement ERP."
+      },
+      {
+        "period": "2009 — 2016",
+        "role": "Origines tech",
+        "org": "OCTIS, Innovasys, Conexance MD",
+        "detail": "Développeur, puis ingénieur systèmes et réseaux, puis responsable infrastructure."
+      }
+    ],
+    "trust": {
+      "title": "Ils m'ont fait confiance",
+      "names": ["Boulanger", "Leroy Merlin", "ADEO", "Enercoop", "CACEIS", "Bouygues Construction", "Auchan Retail", "Publicis"]
+    },
+    "community": {
+      "title": "Transmission et communauté",
+      "items": [
+        { "title": "Enseignant vacataire", "detail": "IAE Lille, Université de Lille, Efficom, Lille Ynov Campus." },
+        { "title": "Formateur", "detail": "VISIPLUS academy, product management et agilité." },
+        { "title": "Nord Agile", "detail": "Trésorier de l'association et co-organisateur de l'Agile Tour Lille (300+ participants)." }
+      ]
+    },
+    "cta": { "label": "Parcours complet sur LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+  },
+  "berceau": {
+    "title": "Le Berceau de Location",
+    "role": "Co-fondateur & Head of Product",
+    "pitch": [
+      "Le Berceau de Location est une marketplace de location de matériel bébé entre particuliers et professionnels. Poussette, lit parapluie, siège auto : la plupart des équipements de puériculture ne servent que quelques mois.",
+      "Plutôt que d'acheter neuf, les parents louent près de chez eux ou sur leur lieu de vacances, à des particuliers ou à des loueurs professionnels. Ceux qui en possèdent rentabilisent un matériel qui dort au grenier. Sans paiement en ligne, avec un interlocuteur humain qui répond sous 24 h.",
+      "Moins de dépenses pour les familles, moins de déchets pour la planète."
+    ],
+    "values": [
+      { "title": "Économie circulaire", "detail": "Faire servir une deuxième fois du matériel de qualité plutôt que d'en produire du neuf." },
+      { "title": "Impact sociétal", "detail": "Rendre l'équipement de qualité accessible à toutes les familles, le temps où il sert vraiment." }
+    ],
+    "cta": { "label": "Découvrir leberceaudelocation.com", "href": "https://www.leberceaudelocation.com" },
+    "note": "Un produit que je construis au quotidien : discovery, priorisation, go-to-market."
+  },
+  "lbn": {
+    "title": "LBN Consulting",
+    "text": "Ma société de conseil, structure de mes missions freelance de coaching produit et de product management.",
+    "activities": [
+      { "title": "Coaching agile et produit", "detail": "Équipes, PM, PO et managers, sur le terrain." },
+      { "title": "Conseil", "detail": "Stratégie produit, roadmap, organisation, pilotage par la valeur." },
+      { "title": "Accompagnement de transformations", "detail": "Agilité à l'échelle, Quarter Planning, delivery des initiatives." }
+    ],
+    "legal": { "label": "Mentions légales", "href": "/mentions-legales/" },
+    "facts": [
+      { "label": "Forme", "value": "EURL" },
+      { "label": "Siège", "value": "Lille" },
+      { "label": "Depuis", "value": "2023" }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Une roadmap à clarifier, une équipe à débloquer, une transformation à tenir ? Parlons-en.",
+    "cta": { "label": "Me contacter sur LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "aside": "Je réponds aux messages LinkedIn. Pas de formulaire, pas de téléphone sur ce site."
+  },
+  "footer": {
+    "copyright": "LBN Consulting",
+    "legal": { "label": "Mentions légales", "href": "/mentions-legales/" },
+    "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
+    "madeWith": "Site statique, sans cookie ni traceur."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "Cette adresse ne mène nulle part. Le site tient sur une seule page.",
+    "back": "Retour à l'accueil"
+  }
+}

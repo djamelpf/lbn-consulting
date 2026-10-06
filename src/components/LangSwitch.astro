@@ -1,0 +1,40 @@
+---
+import type { Locale } from '../lib/i18n';
+import { alternatePath } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  kind: 'home' | 'legal';
+  label: string;
+  class?: string;
+}
+
+const { locale, kind, label, class: className = '' } = Astro.props;
+const entries: { code: Locale; name: string }[] = [
+  { code: 'fr', name: 'Français' },
+  { code: 'en', name: 'English' },
+];
+---
+
+<nav aria-label={label} class:list={['font-mono text-xs font-medium uppercase tracking-[0.1em]', className]}>
+  <ul class="flex items-center gap-1">
+    {
+      entries.map((e, i) => (
+        <li class="flex items-center gap-1">
+          {i > 0 && <span class="text-line-strong" aria-hidden="true">/</span>}
+          {e.code === locale ? (
+            <span class="px-1 py-2 text-fg" aria-current="page" lang={e.code}>
+              {e.code.toUpperCase()}
+              <span class="sr-only"> ({e.name})</span>
+            </span>
+          ) : (
+            <a href={alternatePath(e.code, kind)} hreflang={e.code} lang={e.code} class="px-1 py-2 text-muted transition-colors hover:text-accent" title={e.name}>
+              {e.code.toUpperCase()}
+              <span class="sr-only"> ({e.name})</span>
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>

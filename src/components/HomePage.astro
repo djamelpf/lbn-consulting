@@ -1,0 +1,88 @@
+---
+import { getEntry } from 'astro:content';
+import type { Locale } from '../lib/i18n';
+import { resolveHref } from '../lib/i18n';
+import Base from '../layouts/Base.astro';
+import Hero from './sections/Hero.astro';
+import About from './sections/About.astro';
+import Expertise from './sections/Expertise.astro';
+import Journey from './sections/Journey.astro';
+import Berceau from './sections/Berceau.astro';
+import Lbn from './sections/Lbn.astro';
+import Contact from './sections/Contact.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const entry = await getEntry('site', locale);
+if (!entry) throw new Error(`Missing site content for locale "${locale}"`);
+const data = entry.data;
+
+// Section ids come from the nav (so anchors and labels always match).
+const ids = data.nav.items.map((i) => i.id);
+const total = ids.length;
+const sectionId = (n: number) => ids[n - 1]!;
+
+const site = Astro.site!;
+const pageUrl = new URL(Astro.url.pathname, site).toString();
+const ogImage = new URL(resolveHref(`/og/${locale}.png`), site).toString();
+
+const jsonLd = [
+  {
+    '@type': 'Person',
+    '@id': `${site.origin}${resolveHref('/')}#person`,
+    name: 'Djamel Labani',
+    givenName: 'Djamel',
+    familyName: 'Labani',
+    jobTitle: data.hero.role,
+    description: data.meta.description,
+    url: pageUrl,
+    image: ogImage,
+    sameAs: ['https://www.linkedin.com/in/djamel-labani/'],
+    address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
+    worksFor: { '@id': `${site.origin}${resolveHref('/')}#organization` },
+    knowsAbout: data.expertise.items.map((i) => i.title),
+    hasCredential: data.expertise.certifications.items.map((c) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: c,
+    })),
+  },
+  {
+    '@type': 'Organization',
+    '@id': `${site.origin}${resolveHref('/')}#organization`,
+    name: 'LBN Consulting',
+    legalName: 'LBN CONSULTING',
+    url: pageUrl,
+    logo: new URL(resolveHref('/favicon.svg'), site).toString(),
+    founder: { '@id': `${site.origin}${resolveHref('/')}#person` },
+    vatID: 'FR33953323185',
+    taxID: '95332318500025',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Bureau 3, 34 place du Général de Gaulle',
+      postalCode: '59800',
+      addressLocality: 'Lille',
+      addressCountry: 'FR',
+    },
+    sameAs: ['https://www.linkedin.com/in/djamel-labani/'],
+  },
+  {
+    '@type': 'Organization',
+    name: 'Le Berceau de Location',
+    url: 'https://www.leberceaudelocation.com',
+    founder: { '@id': `${site.origin}${resolveHref('/')}#person` },
+  },
+];
+---
+
+<Base locale={locale} data={data} kind="home" title={data.meta.title} description={data.meta.description} jsonLd={jsonLd}>
+  <Hero data={data} />
+  <About data={data} id={sectionId(1)} index={1} total={total} />
+  <Expertise data={data} id={sectionId(2)} index={2} total={total} />
+  <Journey data={data} id={sectionId(3)} index={3} total={total} />
+  <Berceau data={data} id={sectionId(4)} index={4} total={total} />
+  <Lbn data={data} id={sectionId(5)} index={5} total={total} />
+  <Contact data={data} id={sectionId(6)} index={6} total={total} />
+</Base>

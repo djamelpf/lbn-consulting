@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import { Font } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../lib/i18n';
+import { alternatePath, htmlLang, ogLocale, otherLocale, resolveHref } from '../lib/i18n';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  locale: Locale;
+  data: CollectionEntry<'site'>['data'];
+  kind: 'home' | 'legal';
+  title: string;
+  description: string;
+  /** Extra JSON-LD objects to add to the @graph */
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { locale, data, kind, title, description, jsonLd = [] } = Astro.props;
+
+const site = Astro.site!;
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL(resolveHref(`/og/${locale}.png`), site);
+const other = otherLocale(locale);
+const alternates: { lang: string; href: URL }[] = [
+  { lang: htmlLang[locale], href: canonical },
+  { lang: htmlLang[other], href: new URL(alternatePath(other, kind), site) },
+  { lang: 'x-default', href: new URL(alternatePath('fr', kind), site) },
+];
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': jsonLd,
+};
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Djamel Labani" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f8fa" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f1a" />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="icon" href={resolveHref('/favicon.svg')} type="image/svg+xml" />
+    <link rel="sitemap" href={resolveHref('/sitemap-index.xml')} />
+
+    <meta property="og:type" content={kind === 'home' ? 'profile' : 'website'} />
+    <meta property="og:site_name" content="Djamel Labani — LBN Consulting" />
+    <meta property="og:locale" content={ogLocale[locale]} />
+    <meta property="og:locale:alternate" content={ogLocale[other]} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${data.meta.ogTitle} — ${data.meta.ogSubtitle}`} />
+    {kind === 'home' && <meta property="profile:first_name" content="Djamel" />}
+    {kind === 'home' && <meta property="profile:last_name" content="Labani" />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <Font cssVariable="--astro-font-display" preload />
+    <Font cssVariable="--astro-font-body" preload />
+    <Font cssVariable="--astro-font-mono" />
+
+    {/* Marks JS availability before first paint so reveal styles never hide content without JS. */}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+
+    {jsonLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
+  </head>
+  <body class="min-h-dvh antialiased">
+    <a
+      href="#main"
+      class="btn btn-primary sr-only !absolute left-4 top-4 z-50 focus:not-sr-only focus:!inline-flex"
+    >
+      {data.a11y.skipToContent}
+    </a>
+    <Header locale={locale} data={data} kind={kind} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer locale={locale} data={data} kind={kind} />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

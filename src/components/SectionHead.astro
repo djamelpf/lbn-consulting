@@ -1,0 +1,24 @@
+---
+interface Props {
+  index: number;
+  total: number;
+  title: string;
+  intro?: string;
+  id: string;
+}
+
+const { index, total, title, intro, id } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<header class="mb-10 grid gap-4 md:mb-14 md:grid-cols-12 md:gap-8">
+  <p class="label md:col-span-3" data-reveal>
+    § {pad(index)} <span class="text-line-strong">/ {pad(total)}</span>
+  </p>
+  <div class="md:col-span-9">
+    <h2 id={`${id}-title`} class="display text-[2.25rem] md:text-[3rem] lg:text-[3.5rem]" data-reveal>
+      {title}
+    </h2>
+    {intro && <p class="prose-site mt-5 text-lg text-muted" data-reveal style="--reveal-delay: 80ms">{intro}</p>}
+  </div>
+</header>

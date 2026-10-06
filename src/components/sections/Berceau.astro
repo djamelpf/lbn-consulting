@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHead from '../SectionHead.astro';
+import Icon from '../Icon.astro';
+
+interface Props {
+  data: CollectionEntry<'site'>['data'];
+  id: string;
+  index: number;
+  total: number;
+}
+
+const { data, id, index, total } = Astro.props;
+const { berceau, a11y } = data;
+---
+
+<section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <SectionHead index={index} total={total} title={berceau.title} id={id} />
+
+    <div class="grid gap-10 md:grid-cols-12 md:gap-8">
+      <div class="prose-site md:col-span-7">
+        {
+          berceau.pitch.map((p, i) => (
+            <p class:list={['text-lg leading-relaxed', i === 0 ? 'text-fg' : 'text-muted']} data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              {p}
+            </p>
+          ))
+        }
+        <ul class="mt-8 grid gap-6 sm:grid-cols-2" role="list">
+          {
+            berceau.values.map((v, i) => (
+              <li class="border-t-2 border-fg pt-4" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+                <h3 class="font-semibold">{v.title}</h3>
+                <p class="mt-1 text-muted">{v.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <aside class="berceau-card card flex flex-col gap-5 self-start p-6 md:col-span-4 md:col-start-9" data-reveal style="--reveal-delay: 120ms">
+        <p class="label">FIG. 03 <span aria-hidden="true">—</span> {berceau.role}</p>
+        <p class="display text-2xl !tracking-[-0.02em]">{berceau.title}</p>
+        <p class="text-muted">{berceau.note}</p>
+        <a href={berceau.cta.href} class="btn btn-ghost mt-2 self-start" target="_blank" rel="noopener noreferrer">
+          <Icon name="globe" />
+          {berceau.cta.label}
+          <Icon name="arrow-up-right" />
+          <span class="sr-only"> {a11y.externalLink}</span>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* A single nod to the Berceau brand colour (#e6007e), nothing more. */
+  .berceau-card {
+    border-top: 3px solid #e6007e;
+  }
+</style>

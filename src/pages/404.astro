@@ -1,0 +1,25 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { homePath } from '../lib/i18n';
+
+const fr = await getEntry('site', 'fr');
+const en = await getEntry('site', 'en');
+if (!fr || !en) throw new Error('Missing site content');
+---
+
+<Base locale="fr" data={fr.data} kind="legal" title={`404 — ${fr.data.notFound.title}`} description={fr.data.notFound.text}>
+  <section class="grid-bg">
+    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
+      <p class="label"><span class="text-accent">§ 404</span></p>
+      <h1 class="display mt-4 text-[clamp(2.5rem,8vw,5rem)]">{fr.data.notFound.title}</h1>
+      <p class="prose-site mt-6 text-lg text-muted">{fr.data.notFound.text}</p>
+      <p class="prose-site mt-2 text-lg text-muted" lang="en">{en.data.notFound.text}</p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href={homePath('fr')} class="btn btn-primary"><Icon name="arrow-left" />{fr.data.notFound.back}</a>
+        <a href={homePath('en')} class="btn btn-ghost" lang="en"><Icon name="arrow-left" />{en.data.notFound.back}</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../lib/i18n';
+import { resolveHref } from '../lib/i18n';
+import Icon from './Icon.astro';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  locale: Locale;
+  data: CollectionEntry<'site'>['data'];
+  kind: 'home' | 'legal';
+}
+
+const { locale, data, kind } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line">
+  <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+    <p class="font-mono text-xs uppercase tracking-[0.1em] text-muted">
+      © {year} {data.footer.copyright} <span class="text-line-strong" aria-hidden="true">·</span> {data.footer.madeWith}
+    </p>
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+      <a href={resolveHref(data.footer.legal.href)} class="font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent">
+        {data.footer.legal.label}
+      </a>
+      <a
+        href={data.footer.linkedin.href}
+        class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent"
+        target="_blank"
+        rel="noopener noreferrer me"
+      >
+        <Icon name="linkedin" class="h-4 w-4" />
+        {data.footer.linkedin.label}
+        <span class="sr-only"> {data.a11y.externalLink}</span>
+      </a>
+      <LangSwitch locale={locale} kind={kind} label={data.a11y.langSwitch} />
+    </div>
+  </div>
+</footer>

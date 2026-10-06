@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHead from '../SectionHead.astro';
+import Portrait from '../Portrait.astro';
+
+interface Props {
+  data: CollectionEntry<'site'>['data'];
+  id: string;
+  index: number;
+  total: number;
+}
+
+const { data, id, index, total } = Astro.props;
+const { about, a11y } = data;
+---
+
+<section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <SectionHead index={index} total={total} title={about.title} id={id} />
+
+    <div class="grid gap-12 md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-3">
+        <Portrait variant="about" alt={a11y.portraitAlt} caption="FIG. 02" class="max-w-xs md:max-w-none" />
+      </div>
+
+      <div class="prose-site md:col-span-6 md:col-start-5">
+        {
+          about.paragraphs.map((p, i) => (
+            <p class:list={['text-lg leading-relaxed', i === 0 ? 'text-fg' : 'text-muted']} data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              {p}
+            </p>
+          ))
+        }
+      </div>
+
+      <dl class="grid gap-6 border-t border-line pt-6 md:col-span-12 md:grid-cols-3 md:gap-8 lg:col-span-12">
+        {
+          about.facts.map((f, i) => (
+            <div data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              <dd class="display text-[2.75rem] text-fg md:text-[3.5rem]">
+                {f.prefix}<span data-count={f.value}>{f.value}</span><span class="text-accent">{f.suffix}</span>
+              </dd>
+              <dt class="label mt-2 normal-case tracking-normal">{f.label}</dt>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
