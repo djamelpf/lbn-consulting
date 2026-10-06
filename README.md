@@ -11,7 +11,7 @@ Il présente Djamel Labani, LBN Consulting et Le Berceau de Location.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/lbn-consulting/
+npm run dev        # http://localhost:4321/lbn-consulting/ (base par défaut en local, voir Déploiement)
 npm run build      # génère dist/
 npm run preview    # sert dist/ en local
 npx astro check    # vérification TypeScript / Astro
@@ -70,11 +70,13 @@ Le workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) const
 1. Dans le dépôt : **Settings → Pages → Build and deployment → Source : GitHub Actions**.
 2. GitHub Pages n'est disponible sur un dépôt **privé** qu'avec un plan payant (Pro/Team). Sur un compte gratuit, le dépôt doit être **public**.
 
-### Étape 1 : URL github.io (mode par défaut)
+### Étape 1 : URL github.io (mode de secours)
 
-Rien à faire. Le site est publié sur `https://djamelpf.github.io/lbn-consulting/`.
+Mode 1 du bloc `env` du workflow. Le site est alors publié sur `https://djamelpf.github.io/lbn-consulting/`. En local, `npm run dev` et `npm run build` utilisent ce mode par défaut (préfixe `/lbn-consulting/`).
 
-### Étape 2 : brancher www.lbn-consulting.com
+### Étape 2 : brancher www.lbn-consulting.com (mode actif)
+
+Fait le 6 octobre 2026 : DNS configuré chez OVH, workflow en mode 2.
 
 1. **DNS**, chez le registrar du domaine :
    - `www` → enregistrement **CNAME** vers `djamelpf.github.io.`

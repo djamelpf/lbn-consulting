@@ -18,16 +18,15 @@ env:
   # ──────────────────────────────────────────────────────────────────────
   # Deployment target. Two modes, pick ONE block (see README → Déploiement).
   #
-  # 1) GitHub Pages project URL (default while DNS is not ready):
-  #      https://djamelpf.github.io/lbn-consulting/
-  SITE_URL: https://djamelpf.github.io
-  BASE_PATH: /lbn-consulting
-  CUSTOM_DOMAIN: ""
+  # 1) GitHub Pages project URL (fallback if the custom domain is removed):
+  # SITE_URL: https://djamelpf.github.io
+  # BASE_PATH: /lbn-consulting
+  # CUSTOM_DOMAIN: ""
   #
-  # 2) Custom domain (once www.lbn-consulting.com points to GitHub Pages):
-  # SITE_URL: https://www.lbn-consulting.com
-  # BASE_PATH: /
-  # CUSTOM_DOMAIN: www.lbn-consulting.com
+  # 2) Custom domain (active since 2026-10-06, DNS at OVH):
+  SITE_URL: https://www.lbn-consulting.com
+  BASE_PATH: /
+  CUSTOM_DOMAIN: www.lbn-consulting.com
   # ──────────────────────────────────────────────────────────────────────
 
 jobs:
