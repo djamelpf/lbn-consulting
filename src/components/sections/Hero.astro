@@ -53,9 +53,17 @@ const isExternal = (href: string) => /^https?:/.test(href);
           {hero.ctaPrimary.label}
           {isExternal(hero.ctaPrimary.href) && <span class="sr-only"> {a11y.externalLink}</span>}
         </a>
-        <a href={hero.ctaSecondary.href} class="btn btn-ghost" data-umami-event="cta-journey" data-umami-event-location="hero">
+        <a
+          href={hero.ctaSecondary.href}
+          class="btn btn-ghost"
+          data-umami-event="cta-calendly"
+          data-umami-event-location="hero"
+          target={isExternal(hero.ctaSecondary.href) ? '_blank' : undefined}
+          rel={isExternal(hero.ctaSecondary.href) ? 'noopener noreferrer' : undefined}
+        >
+          <Icon name="calendar" />
           {hero.ctaSecondary.label}
-          <Icon name="arrow-down" />
+          {isExternal(hero.ctaSecondary.href) && <span class="sr-only"> {a11y.externalLink}</span>}
         </a>
       </div>
 
@@ -76,7 +84,7 @@ const isExternal = (href: string) => /^https?:/.test(href);
     </div>
   </div>
 
-  <a href={hero.ctaSecondary.href} class="label absolute bottom-5 right-5 hidden items-center gap-2 hover:text-accent lg:inline-flex">
+  <a href={`#${data.nav.items[0]?.id ?? ''}`} class="label absolute bottom-5 right-5 hidden items-center gap-2 hover:text-accent lg:inline-flex">
     {hero.scrollHint}
     <Icon name="arrow-down" class="h-4 w-4 motion-safe:animate-bounce" />
   </a>

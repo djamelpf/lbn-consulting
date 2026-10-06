@@ -48,6 +48,18 @@ const year = new Date().getFullYear();
         {data.footer.malt.label}
         <span class="sr-only"> {data.a11y.externalLink}</span>
       </a>
+      <a
+        href={data.footer.calendly.href}
+        class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent"
+        data-umami-event="cta-calendly"
+        data-umami-event-location="footer"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="calendar" class="h-4 w-4" />
+        {data.footer.calendly.label}
+        <span class="sr-only"> {data.a11y.externalLink}</span>
+      </a>
       <LangSwitch locale={locale} kind={kind} label={data.a11y.langSwitch} />
     </div>
   </div>

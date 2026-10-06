@@ -64,8 +64,8 @@
       "href": "https://www.linkedin.com/in/djamel-labani/"
     },
     "ctaSecondary": {
-      "label": "See my journey",
-      "href": "#journey"
+      "label": "Book a slot",
+      "href": "https://calendly.com/oursroux/echange-avec-djamel-labani"
     },
     "scrollHint": "Scroll",
     "meta": [
@@ -361,10 +361,14 @@
       "label": "Reach me on LinkedIn",
       "href": "https://www.linkedin.com/in/djamel-labani/"
     },
-    "aside": "I reply to LinkedIn messages and Malt requests. No form, no phone number on this site.",
+    "aside": "Book a slot directly, or message me on LinkedIn or Malt. No form, no phone number on this site.",
     "ctaMalt": {
       "label": "See my Malt profile",
       "href": "https://www.malt.fr/profile/djamellabani"
+    },
+    "ctaCalendly": {
+      "label": "Book a slot",
+      "href": "https://calendly.com/oursroux/echange-avec-djamel-labani"
     }
   },
   "footer": {
@@ -381,6 +385,10 @@
     "malt": {
       "label": "Malt",
       "href": "https://www.malt.fr/profile/djamellabani"
+    },
+    "calendly": {
+      "label": "Book a meeting",
+      "href": "https://calendly.com/oursroux/echange-avec-djamel-labani"
     }
   },
   "notFound": {

@@ -111,6 +111,7 @@ const site = defineCollection({
       text: z.string(),
       cta: link,
       ctaMalt: link,
+      ctaCalendly: link,
       aside: z.string(),
     }),
     footer: z.object({
@@ -118,6 +119,7 @@ const site = defineCollection({
       legal: link,
       linkedin: link,
       malt: link,
+      calendly: link,
       madeWith: z.string(),
     }),
     notFound: z.object({ title: z.string(), text: z.string(), back: z.string() }),

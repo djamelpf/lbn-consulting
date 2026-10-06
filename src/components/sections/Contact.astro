@@ -23,7 +23,13 @@ const pad = (n: number) => String(n).padStart(2, '0');
     </p>
     <div class="mt-10 flex flex-col gap-6 lg:flex-row lg:items-center" data-reveal style="--reveal-delay: 160ms">
       <div class="flex flex-wrap gap-3">
-        <a href={contact.cta.href} class="btn btn-primary !min-h-14 !px-7 !text-base" data-umami-event="cta-linkedin" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
+        <a href={contact.ctaCalendly.href} class="btn btn-primary !min-h-14 !px-7 !text-base" data-umami-event="cta-calendly" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer">
+          <Icon name="calendar" class="!h-5 !w-5" />
+          {contact.ctaCalendly.label}
+          <Icon name="arrow-up-right" />
+          <span class="sr-only"> {a11y.externalLink}</span>
+        </a>
+        <a href={contact.cta.href} class="btn btn-ghost !min-h-14 !px-7 !text-base" data-umami-event="cta-linkedin" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
           <Icon name="linkedin" class="!h-5 !w-5" />
           {contact.cta.label}
           <Icon name="arrow-up-right" />
