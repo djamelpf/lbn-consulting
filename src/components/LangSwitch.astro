@@ -28,7 +28,7 @@ const entries: { code: Locale; name: string }[] = [
               <span class="sr-only"> ({e.name})</span>
             </span>
           ) : (
-            <a href={alternatePath(e.code, kind)} hreflang={e.code} lang={e.code} class="px-1 py-2 text-muted transition-colors hover:text-accent" title={e.name}>
+            <a href={alternatePath(e.code, kind)} hreflang={e.code} lang={e.code} class="px-1 py-2 text-muted transition-colors hover:text-accent" title={e.name} data-umami-event="lang-switch" data-umami-event-to={e.code}>
               {e.code.toUpperCase()}
               <span class="sr-only"> ({e.name})</span>
             </a>

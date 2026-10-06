@@ -119,3 +119,7 @@ src/
 ├── scripts/site.ts     # enrichissements JS (reveal, compteurs, connecteurs, menu)
 └── styles/global.css   # tokens de design, Tailwind, animations
 ```
+
+## Mesure d'audience (désactivée)
+
+Le site n'embarque aucun outil d'analyse. Un branchement Umami (sans cookie) est prêt mais **désactivé** : `umamiWebsiteId` est vide dans [`src/lib/site.ts`](src/lib/site.ts), donc aucun script n'est chargé. Les attributs `data-umami-event` présents sur les liens (clics LinkedIn par emplacement, lien vers le Berceau, changement de langue, navigation) sont inertes tant qu'aucun identifiant n'est renseigné. Si vous l'activez un jour, mettez à jour la section « Données personnelles et cookies » des mentions légales et le texte `footer.madeWith`.

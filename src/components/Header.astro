@@ -30,7 +30,7 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
         {
           data.nav.items.map((item, i) => (
             <li>
-              <a href={anchor(item.id)} class="nav-link whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted hover:text-fg" data-nav={item.id}>
+              <a href={anchor(item.id)} class="nav-link whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted hover:text-fg" data-nav={item.id} data-umami-event="nav-click" data-umami-event-section={item.id}>
                 <span class="text-accent" aria-hidden="true">{pad(i + 1)} </span>
                 {item.label}
               </a>
@@ -45,6 +45,8 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
       <a
         href={data.nav.cta.href}
         class="btn btn-ghost !min-h-10 !px-3"
+        data-umami-event="cta-linkedin"
+        data-umami-event-location="header"
         target="_blank"
         rel="noopener noreferrer me"
       >
@@ -73,7 +75,7 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
       {
         data.nav.items.map((item, i) => (
           <li>
-            <a href={anchor(item.id)} class="flex min-h-12 items-center gap-3 rounded-md px-2 font-mono text-sm uppercase tracking-[0.1em] text-fg hover:bg-accent-soft">
+            <a href={anchor(item.id)} class="flex min-h-12 items-center gap-3 rounded-md px-2 font-mono text-sm uppercase tracking-[0.1em] text-fg hover:bg-accent-soft" data-umami-event="nav-click" data-umami-event-section={item.id} data-umami-event-menu="mobile">
               <span class="text-accent" aria-hidden="true">{pad(i + 1)}</span>
               {item.label}
             </a>

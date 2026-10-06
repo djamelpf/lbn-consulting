@@ -22,7 +22,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
       {contact.text}
     </p>
     <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center" data-reveal style="--reveal-delay: 160ms">
-      <a href={contact.cta.href} class="btn btn-primary !min-h-14 !px-7 !text-base" target="_blank" rel="noopener noreferrer me">
+      <a href={contact.cta.href} class="btn btn-primary !min-h-14 !px-7 !text-base" data-umami-event="cta-linkedin" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
         <Icon name="linkedin" class="!h-5 !w-5" />
         {contact.cta.label}
         <Icon name="arrow-up-right" />

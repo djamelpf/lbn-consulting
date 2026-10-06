@@ -44,7 +44,7 @@ const { journey, a11y } = data;
     </ol>
 
     <div class="mt-10 flex justify-start" data-reveal>
-      <a href={journey.cta.href} class="btn btn-primary" target="_blank" rel="noopener noreferrer me">
+      <a href={journey.cta.href} class="btn btn-primary" data-umami-event="cta-linkedin" data-umami-event-location="journey" target="_blank" rel="noopener noreferrer me">
         <Icon name="linkedin" />
         {journey.cta.label}
         <span class="sr-only"> {a11y.externalLink}</span>

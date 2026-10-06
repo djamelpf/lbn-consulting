@@ -6,6 +6,7 @@ import type { Locale } from '../lib/i18n';
 import { alternatePath, htmlLang, ogLocale, otherLocale, resolveHref } from '../lib/i18n';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   locale: Locale;
@@ -77,6 +78,7 @@ const graph = {
     <script is:inline>document.documentElement.classList.add('js');</script>
 
     {jsonLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
+    <Analytics />
   </head>
   <body class="min-h-dvh antialiased">
     <a

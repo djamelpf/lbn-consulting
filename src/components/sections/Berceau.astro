@@ -43,7 +43,7 @@ const { berceau, a11y } = data;
         <p class="label">FIG. 03 <span aria-hidden="true">—</span> {berceau.role}</p>
         <p class="display text-2xl !tracking-[-0.02em]">{berceau.title}</p>
         <p class="text-muted">{berceau.note}</p>
-        <a href={berceau.cta.href} class="btn btn-ghost mt-2 self-start" target="_blank" rel="noopener noreferrer">
+        <a href={berceau.cta.href} class="btn btn-ghost mt-2 self-start" data-umami-event="outbound-berceau" target="_blank" rel="noopener noreferrer">
           <Icon name="globe" />
           {berceau.cta.label}
           <Icon name="arrow-up-right" />

@@ -1,0 +1,24 @@
+---
+/**
+ * Umami analytics (cookieless, no personal data). Injected only when a
+ * website ID is configured in src/lib/site.ts.
+ *
+ * Events are declared with `data-umami-event` attributes on links
+ * (CTA clicks, outbound links, language switch) and, for section views,
+ * from src/scripts/site.ts.
+ */
+import { umamiDomains, umamiScriptUrl, umamiWebsiteId } from '../lib/site';
+---
+
+{
+  umamiWebsiteId && (
+    <script
+      is:inline
+      defer
+      src={umamiScriptUrl}
+      data-website-id={umamiWebsiteId}
+      data-domains={umamiDomains.join(',')}
+      data-exclude-search="true"
+    />
+  )
+}

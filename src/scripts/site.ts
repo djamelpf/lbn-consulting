@@ -221,9 +221,50 @@ function setupHalo(): void {
   hero.addEventListener('pointerleave', () => hero.classList.remove('halo-on'));
 }
 
+/* ------------------------------------------------------------- Analytics events (Umami, if loaded) */
+type Umami = { track: (name: string, data?: Record<string, string | number>) => void };
+const umami = () => (window as unknown as { umami?: Umami }).umami;
+
+function setupAnalytics(): void {
+  if (!document.querySelector('script[data-website-id]')) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  // One "section-view" per section and per page view, when ≥ 50% of it is visible.
+  const sections = document.querySelectorAll<HTMLElement>('main section[id]');
+  const seen = new Set<string>();
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting || seen.has(e.target.id)) continue;
+        seen.add(e.target.id);
+        umami()?.track('section-view', { section: e.target.id });
+        io.unobserve(e.target);
+      }
+    },
+    { threshold: 0.5 },
+  );
+  sections.forEach((s) => io.observe(s));
+
+  // Reaching the end of the page (contact section fully in view).
+  const last = sections[sections.length - 1];
+  if (last) {
+    const end = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          umami()?.track('page-end');
+          end.disconnect();
+        }
+      },
+      { threshold: 0.9 },
+    );
+    end.observe(last);
+  }
+}
+
 setupReveal();
 setupCounters();
 setupNavState();
 setupMenu();
 setupConnectors();
 setupHalo();
+setupAnalytics();

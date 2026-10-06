@@ -21,12 +21,14 @@ const year = new Date().getFullYear();
       © {year} {data.footer.copyright} <span class="text-line-strong" aria-hidden="true">·</span> {data.footer.madeWith}
     </p>
     <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
-      <a href={resolveHref(data.footer.legal.href)} class="font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent">
+      <a href={resolveHref(data.footer.legal.href)} class="font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent" data-umami-event="legal-click" data-umami-event-location="footer">
         {data.footer.legal.label}
       </a>
       <a
         href={data.footer.linkedin.href}
         class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent"
+        data-umami-event="cta-linkedin"
+        data-umami-event-location="footer"
         target="_blank"
         rel="noopener noreferrer me"
       >

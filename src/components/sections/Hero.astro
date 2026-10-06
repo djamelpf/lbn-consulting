@@ -44,6 +44,8 @@ const isExternal = (href: string) => /^https?:/.test(href);
         <a
           href={hero.ctaPrimary.href}
           class="btn btn-primary"
+          data-umami-event="cta-linkedin"
+          data-umami-event-location="hero"
           target={isExternal(hero.ctaPrimary.href) ? '_blank' : undefined}
           rel={isExternal(hero.ctaPrimary.href) ? 'noopener noreferrer me' : undefined}
         >
@@ -51,7 +53,7 @@ const isExternal = (href: string) => /^https?:/.test(href);
           {hero.ctaPrimary.label}
           {isExternal(hero.ctaPrimary.href) && <span class="sr-only"> {a11y.externalLink}</span>}
         </a>
-        <a href={hero.ctaSecondary.href} class="btn btn-ghost">
+        <a href={hero.ctaSecondary.href} class="btn btn-ghost" data-umami-event="cta-journey" data-umami-event-location="hero">
           {hero.ctaSecondary.label}
           <Icon name="arrow-down" />
         </a>
