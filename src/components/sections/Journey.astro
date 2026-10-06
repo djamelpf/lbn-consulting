@@ -43,10 +43,16 @@ const { journey, a11y } = data;
       }
     </ol>
 
-    <div class="mt-10 flex justify-start" data-reveal>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
       <a href={journey.cta.href} class="btn btn-primary" data-umami-event="cta-linkedin" data-umami-event-location="journey" target="_blank" rel="noopener noreferrer me">
         <Icon name="linkedin" />
         {journey.cta.label}
+        <span class="sr-only"> {a11y.externalLink}</span>
+      </a>
+      <a href={journey.ctaMalt.href} class="btn btn-ghost" data-umami-event="cta-malt" data-umami-event-location="journey" target="_blank" rel="noopener noreferrer me">
+        <Icon name="briefcase" />
+        {journey.ctaMalt.label}
+        <Icon name="arrow-up-right" />
         <span class="sr-only"> {a11y.externalLink}</span>
       </a>
     </div>

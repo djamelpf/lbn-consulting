@@ -21,13 +21,21 @@ const pad = (n: number) => String(n).padStart(2, '0');
     <p class="display mt-8 max-w-[24ch] text-[clamp(1.75rem,4.5vw,3.5rem)] !font-medium !leading-[1.08] !tracking-[-0.025em]" data-reveal style="--reveal-delay: 80ms">
       {contact.text}
     </p>
-    <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center" data-reveal style="--reveal-delay: 160ms">
-      <a href={contact.cta.href} class="btn btn-primary !min-h-14 !px-7 !text-base" data-umami-event="cta-linkedin" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
-        <Icon name="linkedin" class="!h-5 !w-5" />
-        {contact.cta.label}
-        <Icon name="arrow-up-right" />
-        <span class="sr-only"> {a11y.externalLink}</span>
-      </a>
+    <div class="mt-10 flex flex-col gap-6 lg:flex-row lg:items-center" data-reveal style="--reveal-delay: 160ms">
+      <div class="flex flex-wrap gap-3">
+        <a href={contact.cta.href} class="btn btn-primary !min-h-14 !px-7 !text-base" data-umami-event="cta-linkedin" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
+          <Icon name="linkedin" class="!h-5 !w-5" />
+          {contact.cta.label}
+          <Icon name="arrow-up-right" />
+          <span class="sr-only"> {a11y.externalLink}</span>
+        </a>
+        <a href={contact.ctaMalt.href} class="btn btn-ghost !min-h-14 !px-7 !text-base" data-umami-event="cta-malt" data-umami-event-location="contact" target="_blank" rel="noopener noreferrer me">
+          <Icon name="briefcase" class="!h-5 !w-5" />
+          {contact.ctaMalt.label}
+          <Icon name="arrow-up-right" />
+          <span class="sr-only"> {a11y.externalLink}</span>
+        </a>
+      </div>
       <p class="max-w-sm font-mono text-xs leading-relaxed text-muted">{contact.aside}</p>
     </div>
   </div>

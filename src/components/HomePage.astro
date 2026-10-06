@@ -40,7 +40,7 @@ const jsonLd = [
     description: data.meta.description,
     url: pageUrl,
     image: ogImage,
-    sameAs: ['https://www.linkedin.com/in/djamel-labani/'],
+    sameAs: ['https://www.linkedin.com/in/djamel-labani/', 'https://www.malt.fr/profile/djamellabani'],
     address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
     worksFor: { '@id': `${site.origin}${resolveHref('/')}#organization` },
     knowsAbout: data.expertise.items.map((i) => i.title),

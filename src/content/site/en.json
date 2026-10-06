@@ -17,29 +17,70 @@
   },
   "nav": {
     "items": [
-      { "id": "about", "label": "About" },
-      { "id": "expertise", "label": "Expertise" },
-      { "id": "journey", "label": "Journey" },
-      { "id": "berceau", "label": "Le Berceau" },
-      { "id": "lbn", "label": "LBN Consulting" },
-      { "id": "contact", "label": "Contact" }
+      {
+        "id": "about",
+        "label": "About"
+      },
+      {
+        "id": "expertise",
+        "label": "Expertise"
+      },
+      {
+        "id": "journey",
+        "label": "Journey"
+      },
+      {
+        "id": "berceau",
+        "label": "Le Berceau"
+      },
+      {
+        "id": "lbn",
+        "label": "LBN Consulting"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
     ],
-    "cta": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+    "cta": {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/djamel-labani/"
+    }
   },
   "hero": {
     "eyebrow": "Product Coach & committed founder",
     "name": "Djamel Labani",
     "role": "Product Coach & committed founder",
     "hook": "I step in where things get stuck.",
-    "symptoms": ["Blurry roadmap", "strategy that never lands", "no discovery", "siloed teams"],
+    "symptoms": [
+      "Blurry roadmap",
+      "strategy that never lands",
+      "no discovery",
+      "siloed teams"
+    ],
     "promise": "I help product teams get unstuck, for good.",
-    "ctaPrimary": { "label": "Reach me on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
-    "ctaSecondary": { "label": "See my journey", "href": "#journey" },
+    "ctaPrimary": {
+      "label": "Reach me on LinkedIn",
+      "href": "https://www.linkedin.com/in/djamel-labani/"
+    },
+    "ctaSecondary": {
+      "label": "See my journey",
+      "href": "#journey"
+    },
     "scrollHint": "Scroll",
     "meta": [
-      { "label": "Based in", "value": "Lille, France" },
-      { "label": "Practice", "value": "10+ years" },
-      { "label": "Status", "value": "Freelance · LBN Consulting" }
+      {
+        "label": "Based in",
+        "value": "Lille, France"
+      },
+      {
+        "label": "Practice",
+        "value": "10+ years"
+      },
+      {
+        "label": "Status",
+        "value": "Freelance · LBN Consulting"
+      }
     ]
   },
   "about": {
@@ -50,9 +91,19 @@
       "My roots are technical: developer, then systems and network engineer, before moving into agility and product in 2016."
     ],
     "facts": [
-      { "value": 10, "suffix": "+", "label": "years alongside product teams" },
-      { "value": 4, "label": "sectors: retail, marketplaces, fintech, energy" },
-      { "value": 2016, "label": "the switch from tech to product" }
+      {
+        "value": 10,
+        "suffix": "+",
+        "label": "years alongside product teams"
+      },
+      {
+        "value": 4,
+        "label": "sectors: retail, marketplaces, fintech, energy"
+      },
+      {
+        "value": 2016,
+        "label": "the switch from tech to product"
+      }
     ]
   },
   "expertise": {
@@ -65,53 +116,100 @@
         "icon": "compass",
         "title": "Product strategy and vision",
         "description": "Framing initiatives, prioritisation, OKRs to connect vision and execution.",
-        "tags": ["Framing", "Prioritisation", "OKRs"],
-        "links": ["roadmap", "discovery"]
+        "tags": [
+          "Framing",
+          "Prioritisation",
+          "OKRs"
+        ],
+        "links": [
+          "roadmap",
+          "discovery"
+        ]
       },
       {
         "id": "roadmap",
         "icon": "map",
         "title": "Roadmap and backlog",
         "description": "Structure, trade-offs, steering by value.",
-        "tags": ["Structure", "Trade-offs", "Value"],
-        "links": ["strategie", "delivery"]
+        "tags": [
+          "Structure",
+          "Trade-offs",
+          "Value"
+        ],
+        "links": [
+          "strategie",
+          "delivery"
+        ]
       },
       {
         "id": "discovery",
         "icon": "search",
         "title": "Product discovery",
         "description": "Workshops, Example Mapping, Gherkin, metrics: understand before you build.",
-        "tags": ["Workshops", "Example Mapping", "Gherkin", "Metrics"],
-        "links": ["strategie", "echelle"]
+        "tags": [
+          "Workshops",
+          "Example Mapping",
+          "Gherkin",
+          "Metrics"
+        ],
+        "links": [
+          "strategie",
+          "echelle"
+        ]
       },
       {
         "id": "echelle",
         "icon": "layers",
         "title": "Agility at scale",
         "description": "SAFe, Nexus, Quarter Planning, multi-team synchronisation, dependency management.",
-        "tags": ["SAFe", "Nexus", "Quarter Planning", "Dependencies"],
-        "links": ["discovery", "delivery"]
+        "tags": [
+          "SAFe",
+          "Nexus",
+          "Quarter Planning",
+          "Dependencies"
+        ],
+        "links": [
+          "discovery",
+          "delivery"
+        ]
       },
       {
         "id": "delivery",
         "icon": "gauge",
         "title": "Delivery and performance",
         "description": "Process improvement, DORA metrics, the Accelerate approach.",
-        "tags": ["Process", "DORA", "Accelerate"],
-        "links": ["roadmap", "echelle", "humain"]
+        "tags": [
+          "Process",
+          "DORA",
+          "Accelerate"
+        ],
+        "links": [
+          "roadmap",
+          "echelle",
+          "humain"
+        ]
       },
       {
         "id": "humain",
         "icon": "users",
         "title": "People and change",
         "description": "Mentoring PMs and POs, change management, coaching managers.",
-        "tags": ["Mentoring", "Change", "Managers"],
-        "links": ["delivery"]
+        "tags": [
+          "Mentoring",
+          "Change",
+          "Managers"
+        ],
+        "links": [
+          "delivery"
+        ]
       }
     ],
     "certifications": {
       "title": "Certifications",
-      "items": ["Professional Scrum Master I", "Professional Scrum Product Owner I"]
+      "items": [
+        "Professional Scrum Master I",
+        "Professional Scrum Product Owner I"
+      ]
     }
   },
   "journey": {
@@ -159,17 +257,42 @@
     ],
     "trust": {
       "title": "They trusted me",
-      "names": ["Boulanger", "Leroy Merlin", "ADEO", "Enercoop", "CACEIS", "Bouygues Construction", "Auchan Retail", "Publicis"]
+      "names": [
+        "Boulanger",
+        "Leroy Merlin",
+        "ADEO",
+        "Enercoop",
+        "CACEIS",
+        "Bouygues Construction",
+        "Auchan Retail",
+        "Publicis"
+      ]
     },
     "community": {
       "title": "Teaching and community",
       "items": [
-        { "title": "Adjunct lecturer", "detail": "IAE Lille, Université de Lille, Efficom, Lille Ynov Campus." },
-        { "title": "Trainer", "detail": "VISIPLUS academy, product management and agility." },
-        { "title": "Nord Agile", "detail": "Treasurer of the association and co-organiser of Agile Tour Lille (300+ attendees)." }
+        {
+          "title": "Adjunct lecturer",
+          "detail": "IAE Lille, Université de Lille, Efficom, Lille Ynov Campus."
+        },
+        {
+          "title": "Trainer",
+          "detail": "VISIPLUS academy, product management and agility."
+        },
+        {
+          "title": "Nord Agile",
+          "detail": "Treasurer of the association and co-organiser of Agile Tour Lille (300+ attendees)."
+        }
       ]
     },
-    "cta": { "label": "Full journey on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" }
+    "cta": {
+      "label": "Full journey on LinkedIn",
+      "href": "https://www.linkedin.com/in/djamel-labani/"
+    },
+    "ctaMalt": {
+      "label": "Malt profile",
+      "href": "https://www.malt.fr/profile/djamellabani"
+    }
   },
   "berceau": {
     "title": "Le Berceau de Location",
@@ -180,38 +303,85 @@
       "Less spending for families, less waste for the planet."
     ],
     "values": [
-      { "title": "Circular economy", "detail": "Give quality gear a second life instead of manufacturing more of it." },
-      { "title": "Social impact", "detail": "Make quality equipment accessible to every family, for exactly as long as it is needed." }
+      {
+        "title": "Circular economy",
+        "detail": "Give quality gear a second life instead of manufacturing more of it."
+      },
+      {
+        "title": "Social impact",
+        "detail": "Make quality equipment accessible to every family, for exactly as long as it is needed."
+      }
     ],
-    "cta": { "label": "Visit leberceaudelocation.com", "href": "https://www.leberceaudelocation.com" },
+    "cta": {
+      "label": "Visit leberceaudelocation.com",
+      "href": "https://www.leberceaudelocation.com"
+    },
     "note": "A product I build every day: discovery, prioritisation, go-to-market. The site is in French."
   },
   "lbn": {
     "title": "LBN Consulting",
     "text": "My consulting company, the structure behind my freelance product coaching and product management work.",
     "activities": [
-      { "title": "Agile and product coaching", "detail": "Teams, PMs, POs and managers, on the ground." },
-      { "title": "Consulting", "detail": "Product strategy, roadmap, organisation, steering by value." },
-      { "title": "Transformation support", "detail": "Agility at scale, Quarter Planning, initiative delivery." }
+      {
+        "title": "Agile and product coaching",
+        "detail": "Teams, PMs, POs and managers, on the ground."
+      },
+      {
+        "title": "Consulting",
+        "detail": "Product strategy, roadmap, organisation, steering by value."
+      },
+      {
+        "title": "Transformation support",
+        "detail": "Agility at scale, Quarter Planning, initiative delivery."
+      }
     ],
-    "legal": { "label": "Legal notice", "href": "/en/legal-notice/" },
+    "legal": {
+      "label": "Legal notice",
+      "href": "/en/legal-notice/"
+    },
     "facts": [
-      { "label": "Entity", "value": "EURL (French LLC)" },
-      { "label": "Registered in", "value": "Lille" },
-      { "label": "Since", "value": "2023" }
+      {
+        "label": "Entity",
+        "value": "EURL (French LLC)"
+      },
+      {
+        "label": "Registered in",
+        "value": "Lille"
+      },
+      {
+        "label": "Since",
+        "value": "2023"
+      }
     ]
   },
   "contact": {
     "title": "Contact",
     "text": "A roadmap to clarify, a team to unblock, a transformation to hold together? Let's talk.",
-    "cta": { "label": "Reach me on LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
-    "aside": "I reply to LinkedIn messages. No form, no phone number on this site."
+    "cta": {
+      "label": "Reach me on LinkedIn",
+      "href": "https://www.linkedin.com/in/djamel-labani/"
+    },
+    "aside": "I reply to LinkedIn messages and Malt requests. No form, no phone number on this site.",
+    "ctaMalt": {
+      "label": "See my Malt profile",
+      "href": "https://www.malt.fr/profile/djamellabani"
+    }
   },
   "footer": {
     "copyright": "LBN Consulting",
-    "legal": { "label": "Legal notice", "href": "/en/legal-notice/" },
-    "linkedin": { "label": "LinkedIn", "href": "https://www.linkedin.com/in/djamel-labani/" },
-    "madeWith": "Static site, no cookies, no trackers."
+    "legal": {
+      "label": "Legal notice",
+      "href": "/en/legal-notice/"
+    },
+    "linkedin": {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/djamel-labani/"
+    },
+    "madeWith": "Static site, no cookies, no trackers.",
+    "malt": {
+      "label": "Malt",
+      "href": "https://www.malt.fr/profile/djamellabani"
+    }
   },
   "notFound": {
     "title": "Page not found",

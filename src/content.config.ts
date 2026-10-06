@@ -89,6 +89,7 @@ const site = defineCollection({
         items: z.array(z.object({ title: z.string(), detail: z.string() })),
       }),
       cta: link,
+      ctaMalt: link,
     }),
     berceau: z.object({
       title: z.string(),
@@ -109,12 +110,14 @@ const site = defineCollection({
       title: z.string(),
       text: z.string(),
       cta: link,
+      ctaMalt: link,
       aside: z.string(),
     }),
     footer: z.object({
       copyright: z.string(),
       legal: link,
       linkedin: link,
+      malt: link,
       madeWith: z.string(),
     }),
     notFound: z.object({ title: z.string(), text: z.string(), back: z.string() }),
