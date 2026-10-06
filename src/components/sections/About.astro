@@ -33,18 +33,18 @@ const { about, a11y } = data;
         }
       </div>
 
-      <dl class="grid gap-6 border-t border-line pt-6 md:col-span-12 md:grid-cols-3 md:gap-8 lg:col-span-12">
+      <ul class="grid gap-6 border-t border-line pt-6 md:col-span-12 md:grid-cols-3 md:gap-8 lg:col-span-12" role="list">
         {
           about.facts.map((f, i) => (
-            <div data-reveal style={`--reveal-delay: ${i * 80}ms`}>
-              <dd class="display text-[2.75rem] text-fg md:text-[3.5rem]">
+            <li data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+              <p class="display text-[2.75rem] text-fg md:text-[3.5rem]">
                 {f.prefix}<span data-count={f.value}>{f.value}</span><span class="text-accent">{f.suffix}</span>
-              </dd>
-              <dt class="label mt-2 normal-case tracking-normal">{f.label}</dt>
-            </div>
+              </p>
+              <p class="label mt-2 normal-case tracking-normal">{f.label}</p>
+            </li>
           ))
         }
-      </dl>
+      </ul>
     </div>
   </div>
 </section>

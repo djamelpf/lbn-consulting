@@ -25,12 +25,12 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
       <span class="label hidden text-accent sm:inline" aria-hidden="true">§</span>
     </a>
 
-    <nav aria-label={data.a11y.mainNav} class="ml-auto hidden lg:block" id="site-nav">
+    <nav aria-label={data.a11y.mainNav} class="ml-auto hidden xl:block" id="site-nav">
       <ul class="flex items-center gap-6">
         {
           data.nav.items.map((item, i) => (
             <li>
-              <a href={anchor(item.id)} class="nav-link font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted hover:text-fg" data-nav={item.id}>
+              <a href={anchor(item.id)} class="nav-link whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted hover:text-fg" data-nav={item.id}>
                 <span class="text-accent" aria-hidden="true">{pad(i + 1)} </span>
                 {item.label}
               </a>
@@ -40,7 +40,7 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
       </ul>
     </nav>
 
-    <div class="ml-auto flex items-center gap-2 lg:ml-6">
+    <div class="ml-auto flex items-center gap-2 xl:ml-6">
       <LangSwitch locale={locale} kind={kind} label={data.a11y.langSwitch} />
       <a
         href={data.nav.cta.href}
@@ -54,7 +54,7 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
       </a>
       <button
         type="button"
-        class="btn btn-ghost !min-h-10 !px-3 lg:hidden"
+        class="btn btn-ghost !min-h-10 !px-3 xl:hidden"
         aria-expanded="false"
         aria-controls="mobile-nav"
         data-menu-toggle
@@ -68,7 +68,7 @@ const anchor = (id: string) => (kind === 'home' ? `#${id}` : `${home}#${id}`);
     </div>
   </div>
 
-  <nav id="mobile-nav" aria-label={data.a11y.mainNav} class="hidden border-t border-line bg-bg lg:!hidden" data-mobile-nav>
+  <nav id="mobile-nav" aria-label={data.a11y.mainNav} class="hidden border-t border-line bg-bg xl:!hidden" data-mobile-nav>
     <ul class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6">
       {
         data.nav.items.map((item, i) => (
