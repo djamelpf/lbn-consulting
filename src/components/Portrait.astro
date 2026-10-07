@@ -2,17 +2,16 @@
 /**
  * Portrait with a technical frame (corner markers, grid overlay, caption).
  *
- * Drop your photos in src/assets/portraits/:
- *   - hero.jpg  (used in the hero; square or 4:5 works best)
- *   - about.jpg (optional; falls back to hero.jpg)
- * Any missing file shows an elegant placeholder instead of breaking the build.
+ * Drop the photo in src/assets/portraits/hero.jpg (square or 4:5 works best).
+ * The site shows a single portrait, in the hero.
+ * A missing file shows an elegant placeholder instead of breaking the build.
  */
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
   alt: string;
-  variant: 'hero' | 'about';
+  variant: 'hero';
   caption?: string;
   class?: string;
 }
@@ -29,13 +28,10 @@ function find(name: string): ImageMetadata | undefined {
   return key ? files[key]!.default : undefined;
 }
 
-const image = (variant === 'about' ? find('about') : undefined) ?? find('hero');
+const image = find(variant);
 
-const widths = variant === 'hero' ? [360, 540, 720, 1080] : [320, 480, 640];
-const sizes =
-  variant === 'hero'
-    ? '(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 92vw'
-    : '(min-width: 1024px) 26vw, (min-width: 640px) 40vw, 80vw';
+const widths = [360, 540, 720, 1080];
+const sizes = '(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 92vw';
 ---
 
 <figure class:list={['relative m-0', className]}>
@@ -51,8 +47,8 @@ const sizes =
           sizes={sizes}
           formats={['avif', 'webp']}
           fallbackFormat="jpg"
-          loading={variant === 'hero' ? 'eager' : 'lazy'}
-          fetchpriority={variant === 'hero' ? 'high' : 'auto'}
+          loading="eager"
+          fetchpriority="high"
           decoding="async"
           class="block aspect-square h-auto w-full object-cover"
           pictureAttributes={{ class: 'block' }}

@@ -46,12 +46,9 @@ Quelques repères :
 
 ## Ajouter ou changer les photos
 
-Déposez vos portraits dans **`src/assets/portraits/`** :
+Le site affiche une seule photo, dans le hero. Remplacez **`src/assets/portraits/hero.jpg`** pour la changer (carré ou 4:5 recommandé, 2000 px de côté suffisent).
 
-- `hero.jpg` : portrait du hero (carré ou 4:5 recommandé, 2000 px de côté suffisent).
-- `about.jpg` : portrait de la section À propos (optionnel, sinon `hero.jpg` est réutilisé).
-
-Formats acceptés : `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`. Au build, Astro génère automatiquement les variantes AVIF et WebP aux tailles responsives (360 à 1080 px), avec un JPG de secours. Si aucun fichier n'est présent, un placeholder élégant s'affiche à la place.
+Formats acceptés : `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`. Au build, Astro génère automatiquement les variantes AVIF et WebP aux tailles responsives (360 à 1080 px), avec un JPG de secours. Si le fichier est absent, un placeholder élégant s'affiche à la place.
 
 Pourquoi `src/assets/` et pas `public/` ? Les fichiers de `public/` sont copiés tels quels, sans optimisation. Pour tenir les objectifs Lighthouse (formats modernes, tailles adaptées), les images doivent passer par `src/assets/`.
 

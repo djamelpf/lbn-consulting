@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import SectionHead from '../SectionHead.astro';
-import Portrait from '../Portrait.astro';
 
 interface Props {
   data: CollectionEntry<'site'>['data'];
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const { data, id, index, total } = Astro.props;
-const { about, a11y } = data;
+const { about } = data;
 ---
 
 <section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
@@ -19,11 +18,7 @@ const { about, a11y } = data;
     <SectionHead index={index} total={total} title={about.title} id={id} />
 
     <div class="grid gap-12 md:grid-cols-12 md:gap-8">
-      <div class="md:col-span-3">
-        <Portrait variant="about" alt={a11y.portraitAlt} caption="FIG. 02" class="max-w-xs md:max-w-none" />
-      </div>
-
-      <div class="prose-site md:col-span-6 md:col-start-5">
+      <div class="prose-site md:col-span-8 md:col-start-4">
         {
           about.paragraphs.map((p, i) => (
             <p class:list={['text-lg leading-relaxed', i === 0 ? 'text-fg' : 'text-muted']} data-reveal style={`--reveal-delay: ${i * 80}ms`}>
