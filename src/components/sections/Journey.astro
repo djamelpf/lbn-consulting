@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import SectionHead from '../SectionHead.astro';
 import Icon from '../Icon.astro';
+import { resolveHref } from '../../lib/i18n';
 
 interface Props {
   data: CollectionEntry<'site'>['data'];
@@ -48,6 +49,17 @@ const { journey, a11y } = data;
         <Icon name="linkedin" />
         {journey.cta.label}
         <span class="sr-only"> {a11y.externalLink}</span>
+      </a>
+      <a
+        href={resolveHref(journey.ctaCv.href)}
+        class="btn btn-ghost"
+        download={journey.ctaCv.fileName}
+        type="application/pdf"
+        data-umami-event="cv-download"
+        data-umami-event-location="journey"
+      >
+        <Icon name="download" />
+        {journey.ctaCv.label}
       </a>
       <a href={journey.ctaMalt.href} class="btn btn-ghost" data-umami-event="cta-malt" data-umami-event-location="journey" target="_blank" rel="noopener noreferrer me">
         <Icon name="briefcase" />

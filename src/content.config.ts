@@ -93,6 +93,7 @@ const site = defineCollection({
       }),
       cta: link,
       ctaMalt: link,
+      ctaCv: link.extend({ fileName: z.string() }),
     }),
     berceau: z.object({
       title: z.string(),
@@ -123,6 +124,7 @@ const site = defineCollection({
       linkedin: link,
       malt: link,
       calendly: link,
+      cv: link,
       madeWith: z.string(),
     }),
     faq: z.object({

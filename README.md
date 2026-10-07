@@ -53,6 +53,10 @@ Pourquoi `src/assets/` et pas `public/` ? Les fichiers de `public/` sont copiés
 
 Le texte alternatif se modifie dans `a11y.portraitAlt` (FR et EN).
 
+## CV téléchargeable
+
+Le CV est servi depuis [`public/cv/djamel-labani-cv-coach-produit-agile-lille.pdf`](public/cv/djamel-labani-cv-coach-produit-agile-lille.pdf). Pour le mettre à jour, remplacez ce fichier en gardant le même nom : les boutons « Télécharger mon CV » (section Parcours) et « CV (PDF) » (pied de page) pointent dessus, et le visiteur le reçoit sous le nom `CV-Djamel-Labani.pdf`. Les libellés se modifient dans `journey.ctaCv` et `footer.cv` des JSON.
+
 ## Image de partage (Open Graph)
 
 Générée au build pour chaque langue : `/og/fr.png` et `/og/en.png` (1200 × 630), à partir de `meta.ogTitle`, `meta.ogSubtitle` et `meta.ogTagline`. Le rendu est fait par [`src/pages/og/[lang].png.ts`](src/pages/og/[lang].png.ts) avec les polices TTF de `src/assets/fonts/`.

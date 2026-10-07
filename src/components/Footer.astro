@@ -60,6 +60,17 @@ const year = new Date().getFullYear();
         {data.footer.calendly.label}
         <span class="sr-only"> {data.a11y.externalLink}</span>
       </a>
+      <a
+        href={resolveHref(data.footer.cv.href)}
+        class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-muted hover:text-accent"
+        download="CV-Djamel-Labani.pdf"
+        type="application/pdf"
+        data-umami-event="cv-download"
+        data-umami-event-location="footer"
+      >
+        <Icon name="download" class="h-4 w-4" />
+        {data.footer.cv.label}
+      </a>
       <LangSwitch locale={locale} kind={kind} label={data.a11y.langSwitch} />
     </div>
   </div>

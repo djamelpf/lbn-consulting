@@ -325,6 +325,11 @@
     "ctaMalt": {
       "label": "Profil Malt",
       "href": "https://www.malt.fr/profile/djamellabani"
+    },
+    "ctaCv": {
+      "label": "Télécharger mon CV (PDF)",
+      "href": "/cv/djamel-labani-cv-coach-produit-agile-lille.pdf",
+      "fileName": "CV-Djamel-Labani.pdf"
     }
   },
   "berceau": {
@@ -422,6 +427,10 @@
     "calendly": {
       "label": "Prendre rendez-vous",
       "href": "https://calendly.com/oursroux/echange-avec-djamel-labani"
+    },
+    "cv": {
+      "label": "CV (PDF)",
+      "href": "/cv/djamel-labani-cv-coach-produit-agile-lille.pdf"
     }
   },
   "notFound": {
