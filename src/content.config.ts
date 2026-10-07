@@ -17,6 +17,9 @@ const site = defineCollection({
       ogTitle: z.string(),
       ogSubtitle: z.string(),
       ogTagline: z.string(),
+      jobTitle: z.string(),
+      keywords: z.array(z.string()),
+      areaServed: z.array(z.string()),
     }),
     a11y: z.object({
       skipToContent: z.string(),
@@ -121,6 +124,11 @@ const site = defineCollection({
       malt: link,
       calendly: link,
       madeWith: z.string(),
+    }),
+    faq: z.object({
+      title: z.string(),
+      intro: z.string(),
+      items: z.array(z.object({ q: z.string(), a: z.string() })),
     }),
     notFound: z.object({ title: z.string(), text: z.string(), back: z.string() }),
   }),

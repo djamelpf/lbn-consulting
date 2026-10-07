@@ -16,9 +16,11 @@ interface Props {
   description: string;
   /** Extra JSON-LD objects to add to the @graph */
   jsonLd?: Record<string, unknown>[];
+  /** Keep the page out of search results (404). */
+  noindex?: boolean;
 }
 
-const { locale, data, kind, title, description, jsonLd = [] } = Astro.props;
+const { locale, data, kind, title, description, jsonLd = [], noindex = false } = Astro.props;
 
 const site = Astro.site!;
 const canonical = new URL(Astro.url.pathname, site);
@@ -44,12 +46,21 @@ const graph = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Djamel Labani" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta name="geo.region" content="FR-HDF" />
+    <meta name="geo.placename" content="Lille" />
+    <meta name="geo.position" content="50.6369;3.0633" />
+    <meta name="ICBM" content="50.6369, 3.0633" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f8fa" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f1a" />
-    <link rel="canonical" href={canonical} />
-    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {!noindex && alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    <link rel="icon" href={resolveHref('/favicon.ico')} sizes="48x48" />
     <link rel="icon" href={resolveHref('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={resolveHref('/icon-192.png')} type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href={resolveHref('/apple-touch-icon.png')} />
+    <link rel="manifest" href={resolveHref('/site.webmanifest')} />
     <link rel="sitemap" href={resolveHref('/sitemap-index.xml')} />
 
     <meta property="og:type" content={kind === 'home' ? 'profile' : 'website'} />

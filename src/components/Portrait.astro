@@ -2,7 +2,9 @@
 /**
  * Portrait with a technical frame (corner markers, grid overlay, caption).
  *
- * Drop the photo in src/assets/portraits/hero.jpg (square or 4:5 works best).
+ * Drop one photo in src/assets/portraits/ (square or 4:5 works best).
+ * Its file name ends up in the image URLs, so keep it descriptive
+ * (e.g. djamel-labani-coach-produit-agile-lille.jpg).
  * The site shows a single portrait, in the hero.
  * A missing file shows an elegant placeholder instead of breaking the build.
  */
@@ -16,19 +18,14 @@ interface Props {
   class?: string;
 }
 
-const { alt, variant, caption, class: className = '' } = Astro.props;
+const { alt, caption, class: className = '' } = Astro.props;
 
 const files = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/portraits/*.{jpg,jpeg,png,webp,avif}',
   { eager: true },
 );
 
-function find(name: string): ImageMetadata | undefined {
-  const key = Object.keys(files).find((k) => new RegExp(`/${name}\\.(jpg|jpeg|png|webp|avif)$`).test(k));
-  return key ? files[key]!.default : undefined;
-}
-
-const image = find(variant);
+const image = Object.keys(files).sort().map((k) => files[k]!.default)[0];
 
 const widths = [360, 540, 720, 1080];
 const sizes = '(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 92vw';
@@ -60,7 +57,7 @@ const sizes = '(min-width: 1024px) 34vw, (min-width: 640px) 60vw, 92vw';
           role="img"
           aria-label={alt}
         >
-          <span class="label text-accent">{variant}.jpg</span>
+          <span class="label text-accent">portrait.jpg</span>
         </div>
       )
     }

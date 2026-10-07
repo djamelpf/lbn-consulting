@@ -1,10 +1,38 @@
 {
   "meta": {
-    "title": "Djamel Labani — Coach Produit & Startupeur engagé, Lille",
-    "description": "Coach produit et product manager freelance depuis plus de 10 ans (retail, marketplace, fintech, énergie). J'interviens là où ça coince : roadmap, stratégie, discovery, équipes en silos. Fondateur de LBN Consulting, co-fondateur du Berceau de Location.",
+    "title": "Coach Produit & Coach Agile à Lille | Djamel Labani",
+    "description": "Coach produit et coach agile freelance à Lille. Stratégie produit, OKR, discovery, agilité à l'échelle : 10 ans auprès de Boulanger, Leroy Merlin et ADEO.",
     "ogTitle": "Djamel Labani",
     "ogSubtitle": "Coach Produit & Startupeur engagé",
-    "ogTagline": "J'interviens là où ça coince."
+    "ogTagline": "J'interviens là où ça coince.",
+    "jobTitle": "Coach produit et coach agile freelance",
+    "keywords": [
+      "Coach produit",
+      "Coach agile",
+      "Product Manager freelance",
+      "Product Owner freelance",
+      "Consultant agile",
+      "Coaching produit",
+      "Coaching agile",
+      "OKR",
+      "Product discovery",
+      "SAFe",
+      "Quarter Planning",
+      "Agilité à l'échelle",
+      "Roadmap produit",
+      "Indicateurs DORA",
+      "Mentoring de Product Managers"
+    ],
+    "areaServed": [
+      "Lille",
+      "Métropole Européenne de Lille",
+      "Villeneuve-d'Ascq",
+      "Lesquin",
+      "Roubaix",
+      "Tourcoing",
+      "Marcq-en-Barœul",
+      "Hauts-de-France"
+    ]
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
@@ -13,7 +41,7 @@
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
     "externalLink": "(nouvelle fenêtre)",
-    "portraitAlt": "Portrait en noir et blanc de Djamel Labani, bras croisés, souriant"
+    "portraitAlt": "Djamel Labani, coach produit et coach agile à Lille, portrait en noir et blanc, bras croisés"
   },
   "nav": {
     "items": [
@@ -38,6 +66,10 @@
         "label": "LBN Consulting"
       },
       {
+        "id": "faq",
+        "label": "FAQ"
+      },
+      {
         "id": "contact",
         "label": "Contact"
       }
@@ -48,7 +80,7 @@
     }
   },
   "hero": {
-    "eyebrow": "Coach Produit & Startupeur engagé",
+    "eyebrow": "Coach produit, coach agile & startupeur engagé · Lille",
     "name": "Djamel Labani",
     "role": "Coach Produit & Startupeur engagé",
     "hook": "J'interviens là où ça coince.",
@@ -71,7 +103,7 @@
     "meta": [
       {
         "label": "Base",
-        "value": "Lille, France"
+        "value": "Lille · Hauts-de-France"
       },
       {
         "label": "Pratique",
@@ -86,9 +118,10 @@
   "about": {
     "title": "À propos",
     "paragraphs": [
-      "Depuis plus de 10 ans, j'accompagne des équipes produit dans des environnements exigeants (retail, marketplace, fintech, énergie) pour structurer leur stratégie, accélérer leur delivery et connecter objectifs et impact. Une posture de praticien, pas de théoricien.",
+      "Coach produit et coach agile freelance basé à Lille, j'accompagne depuis plus de 10 ans des équipes produit dans des environnements exigeants (retail, marketplace, fintech, énergie) pour structurer leur stratégie, accélérer leur delivery et connecter objectifs et impact. Une posture de praticien, pas de théoricien.",
       "Et je vis de l'intérieur ce que j'accompagne : en parallèle, je co-fonde Le Berceau de Location, avec ses arbitrages constants, sa discovery et son go-to-market.",
-      "Origines tech : développeur, puis ingénieur systèmes et réseaux, avant de basculer vers l'agilité et le produit en 2016."
+      "Origines tech : développeur, puis ingénieur systèmes et réseaux, avant de basculer vers l'agilité et le produit en 2016.",
+      "J'interviens à Lille et dans la métropole lilloise (Villeneuve-d'Ascq, Lesquin, Roubaix, Tourcoing, Marcq-en-Barœul), et plus largement dans les Hauts-de-France."
     ],
     "facts": [
       {
@@ -108,7 +141,7 @@
   },
   "expertise": {
     "title": "Expertises",
-    "intro": "Six terrains d'intervention, rarement isolés : une roadmap floue cache souvent une stratégie mal ancrée, et une delivery lente une discovery absente. Les liens entre les cartes montrent ces dépendances.",
+    "intro": "Six terrains d'intervention de coach produit et de coach agile, rarement isolés : une roadmap floue cache souvent une stratégie mal ancrée, et une delivery lente une discovery absente. Les liens entre les cartes montrent ces dépendances.",
     "connectorsHint": "Survolez une carte pour voir ses dépendances.",
     "items": [
       {
@@ -320,7 +353,7 @@
   },
   "lbn": {
     "title": "LBN Consulting",
-    "text": "Ma société de conseil, structure de mes missions freelance de coaching produit et de product management.",
+    "text": "Ma société de conseil, basée à Lille : la structure de mes missions freelance de coaching produit, de coaching agile et de product management.",
     "activities": [
       {
         "title": "Coaching agile et produit",
@@ -395,5 +428,35 @@
     "title": "Page introuvable",
     "text": "Cette adresse ne mène nulle part. Le site tient sur une seule page.",
     "back": "Retour à l'accueil"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "intro": "Ce que l'on me demande le plus souvent avant de démarrer une mission de coaching produit ou de coaching agile.",
+    "items": [
+      {
+        "q": "Qu'est-ce qu'un coach produit ?",
+        "a": "Un coach produit aide les équipes et leurs responsables à mieux décider quoi construire, et pourquoi : clarifier la vision, relier la stratégie aux objectifs (OKR), prioriser par la valeur, installer une discovery régulière et mesurer l'impact. Je travaille aux côtés des Product Managers, des Product Owners et des managers, sur leurs vrais sujets."
+      },
+      {
+        "q": "Quelle différence entre un coach produit et un coach agile ?",
+        "a": "Le coach agile se concentre sur la manière de travailler : rituels, flux, collaboration entre équipes, agilité à l'échelle (SAFe, Nexus). Le coach produit se concentre sur ce que l'on construit et sur l'impact obtenu. J'exerce les deux : j'ai été Scrum Master puis coach agile avant de devenir coach produit, et les blocages mêlent presque toujours les deux."
+      },
+      {
+        "q": "Où intervenez-vous ?",
+        "a": "Je suis basé à Lille et j'interviens sur site dans la métropole lilloise (Lille, Villeneuve-d'Ascq, Lesquin, Roubaix, Tourcoing, Marcq-en-Barœul) et dans les Hauts-de-France. Pour une autre région ou un format à distance, parlons-en."
+      },
+      {
+        "q": "Quels types de missions proposez-vous ?",
+        "a": "Des missions freelance de coaching produit et de coaching agile via LBN Consulting, l'accompagnement de transformations (OKR, Quarter Planning, synchronisation multi-équipes, delivery), le mentoring de Product Managers et de Product Owners, et des formations au product management et à l'agilité."
+      },
+      {
+        "q": "Accompagnez-vous les startups comme les grands groupes ?",
+        "a": "Oui. J'ai accompagné de grandes entreprises du retail, de l'énergie et de la finance (Boulanger, Leroy Merlin, ADEO, Enercoop, CACEIS), et je co-fonde moi-même une startup, Le Berceau de Location. Je connais les arbitrages avec peu de ressources autant que la coordination de dizaines d'équipes."
+      },
+      {
+        "q": "Comment démarrer ?",
+        "a": "Réservez un créneau d'échange en ligne, ou écrivez-moi sur LinkedIn ou sur Malt. On fait le point sur votre contexte et sur ce qui coince, sans engagement."
+      }
+    ]
   }
 }

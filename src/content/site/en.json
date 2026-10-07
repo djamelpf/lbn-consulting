@@ -1,10 +1,38 @@
 {
   "meta": {
-    "title": "Djamel Labani — Product Coach & committed founder, Lille",
-    "description": "Freelance product coach and product manager with 10+ years across retail, marketplaces, fintech and energy. I step in where things get stuck: roadmap, strategy, discovery, siloed teams. Founder of LBN Consulting, co-founder of Le Berceau de Location.",
+    "title": "Product Coach & Agile Coach in Lille | Djamel Labani",
+    "description": "Freelance product coach and agile coach in Lille, France. Product strategy, OKRs, discovery, scaled agile: 10+ years with Boulanger, Leroy Merlin and ADEO.",
     "ogTitle": "Djamel Labani",
     "ogSubtitle": "Product Coach & committed founder",
-    "ogTagline": "I step in where things get stuck."
+    "ogTagline": "I step in where things get stuck.",
+    "jobTitle": "Freelance product coach and agile coach",
+    "keywords": [
+      "Product coach",
+      "Agile coach",
+      "Freelance product manager",
+      "Freelance product owner",
+      "Agile consultant",
+      "Product coaching",
+      "Agile coaching",
+      "OKRs",
+      "Product discovery",
+      "SAFe",
+      "Quarter Planning",
+      "Scaled agile",
+      "Product roadmap",
+      "DORA metrics",
+      "Product manager mentoring"
+    ],
+    "areaServed": [
+      "Lille",
+      "Lille European Metropolis",
+      "Villeneuve-d'Ascq",
+      "Lesquin",
+      "Roubaix",
+      "Tourcoing",
+      "Marcq-en-Barœul",
+      "Hauts-de-France"
+    ]
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -13,7 +41,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "externalLink": "(opens in a new window)",
-    "portraitAlt": "Black and white portrait of Djamel Labani, arms crossed, smiling"
+    "portraitAlt": "Djamel Labani, product coach and agile coach in Lille, black and white portrait, arms crossed"
   },
   "nav": {
     "items": [
@@ -38,6 +66,10 @@
         "label": "LBN Consulting"
       },
       {
+        "id": "faq",
+        "label": "FAQ"
+      },
+      {
         "id": "contact",
         "label": "Contact"
       }
@@ -48,7 +80,7 @@
     }
   },
   "hero": {
-    "eyebrow": "Product Coach & committed founder",
+    "eyebrow": "Product coach, agile coach & committed founder · Lille",
     "name": "Djamel Labani",
     "role": "Product Coach & committed founder",
     "hook": "I step in where things get stuck.",
@@ -71,7 +103,7 @@
     "meta": [
       {
         "label": "Based in",
-        "value": "Lille, France"
+        "value": "Lille · Hauts-de-France"
       },
       {
         "label": "Practice",
@@ -86,9 +118,10 @@
   "about": {
     "title": "About",
     "paragraphs": [
-      "For over ten years I have worked alongside product teams in demanding environments (retail, marketplaces, fintech, energy), helping them shape their strategy, speed up delivery and connect goals to real impact. I am a practitioner, not a theorist.",
+      "A freelance product coach and agile coach based in Lille, France, I have spent over ten years working alongside product teams in demanding environments (retail, marketplaces, fintech, energy), helping them shape their strategy, speed up delivery and connect goals to real impact. I am a practitioner, not a theorist.",
       "And I live what I coach from the inside: alongside my consulting work, I am co-founding Le Berceau de Location, with its constant trade-offs, its discovery work and its go-to-market.",
-      "My roots are technical: developer, then systems and network engineer, before moving into agility and product in 2016."
+      "My roots are technical: developer, then systems and network engineer, before moving into agility and product in 2016.",
+      "I work on site in Lille and across the Lille metropolitan area (Villeneuve-d'Ascq, Lesquin, Roubaix, Tourcoing, Marcq-en-Barœul), and more widely in the Hauts-de-France region."
     ],
     "facts": [
       {
@@ -108,7 +141,7 @@
   },
   "expertise": {
     "title": "Expertise",
-    "intro": "Six areas of work, rarely in isolation: a blurry roadmap usually hides a strategy that never landed, and slow delivery often comes from missing discovery. The lines between cards show these dependencies.",
+    "intro": "Six areas of work as a product coach and agile coach, rarely in isolation: a blurry roadmap usually hides a strategy that never landed, and slow delivery often comes from missing discovery. The lines between cards show these dependencies.",
     "connectorsHint": "Hover a card to see its dependencies.",
     "items": [
       {
@@ -320,7 +353,7 @@
   },
   "lbn": {
     "title": "LBN Consulting",
-    "text": "My consulting company, the structure behind my freelance product coaching and product management work.",
+    "text": "My consulting company, based in Lille: the structure behind my freelance product coaching, agile coaching and product management work.",
     "activities": [
       {
         "title": "Agile and product coaching",
@@ -395,5 +428,35 @@
     "title": "Page not found",
     "text": "This address leads nowhere. The whole site fits on one page.",
     "back": "Back to home"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "intro": "What people usually ask me before starting a product coaching or agile coaching engagement.",
+    "items": [
+      {
+        "q": "What does a product coach do?",
+        "a": "A product coach helps teams and their leaders decide better what to build, and why: clarifying the vision, linking strategy to goals (OKRs), prioritising by value, setting up continuous discovery and measuring impact. I work alongside Product Managers, Product Owners and managers, on their real problems."
+      },
+      {
+        "q": "What is the difference between a product coach and an agile coach?",
+        "a": "An agile coach focuses on how people work: rituals, flow, collaboration across teams, agility at scale (SAFe, Nexus). A product coach focuses on what gets built and the impact it has. I do both: I was a Scrum Master and an agile coach before becoming a product coach, and real blockers almost always mix the two."
+      },
+      {
+        "q": "Where do you work?",
+        "a": "I am based in Lille, France, and work on site across the Lille metropolitan area (Lille, Villeneuve-d'Ascq, Lesquin, Roubaix, Tourcoing, Marcq-en-Barœul) and the Hauts-de-France region. For another location or a remote setup, let's talk."
+      },
+      {
+        "q": "What kind of engagements do you offer?",
+        "a": "Freelance product coaching and agile coaching engagements through LBN Consulting, transformation support (OKRs, Quarter Planning, multi-team synchronisation, delivery), mentoring for Product Managers and Product Owners, and training in product management and agility."
+      },
+      {
+        "q": "Do you work with startups as well as large companies?",
+        "a": "Yes. I have worked with large retail, energy and finance companies (Boulanger, Leroy Merlin, ADEO, Enercoop, CACEIS), and I am co-founding a startup myself, Le Berceau de Location. I know trade-offs with scarce resources as well as coordinating dozens of teams."
+      },
+      {
+        "q": "How do we get started?",
+        "a": "Book a slot online, or message me on LinkedIn or Malt. We go over your context and what is getting stuck, with no commitment."
+      }
+    ]
   }
 }

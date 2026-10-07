@@ -6,12 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 /**
  * Deployment target.
  *
- * - Default (no env): GitHub Pages project URL → https://djamelpf.github.io/lbn-consulting/
- * - Custom domain: set SITE_URL=https://www.lbn-consulting.com and BASE_PATH=/ in the
- *   GitHub Actions workflow (see .github/workflows/deploy.yml and README).
+ * - Default (no env): custom domain → https://www.lbn-consulting.com/
+ * - Fallback: set SITE_URL=https://djamelpf.github.io and BASE_PATH=/lbn-consulting
+ *   to publish on the GitHub Pages project URL (see .github/workflows/deploy.yml).
  */
-const SITE_URL = process.env.SITE_URL ?? 'https://djamelpf.github.io';
-const BASE_PATH = process.env.BASE_PATH ?? '/lbn-consulting';
+const SITE_URL = process.env.SITE_URL ?? 'https://www.lbn-consulting.com';
+const BASE_PATH = process.env.BASE_PATH ?? '/';
+const BUILD_DATE = new Date().toISOString();
 
 export default defineConfig({
   site: SITE_URL,
@@ -28,7 +29,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-GB' } },
-      filter: (page) => !page.includes('/og/'),
+      filter: (page) => !page.includes('/og/') && !page.includes('/404'),
+      serialize(item) {
+        item.lastmod = BUILD_DATE;
+        return item;
+      },
     }),
   ],
 

@@ -1,5 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import type { Locale } from '../lib/i18n';
 import { resolveHref } from '../lib/i18n';
 import Base from '../layouts/Base.astro';
@@ -9,6 +11,7 @@ import Expertise from './sections/Expertise.astro';
 import Journey from './sections/Journey.astro';
 import Berceau from './sections/Berceau.astro';
 import Lbn from './sections/Lbn.astro';
+import Faq from './sections/Faq.astro';
 import Contact from './sections/Contact.astro';
 
 interface Props {
@@ -21,58 +24,143 @@ if (!entry) throw new Error(`Missing site content for locale "${locale}"`);
 const data = entry.data;
 
 // Section ids come from the nav (so anchors and labels always match).
-const ids = data.nav.items.map((i) => i.id);
-const total = ids.length;
-const sectionId = (n: number) => ids[n - 1]!;
+const navIds = data.nav.items.map((i) => i.id);
+const total = navIds.length;
+const sectionId = (n: number) => navIds[n - 1]!;
 
 const site = Astro.site!;
 const pageUrl = new URL(Astro.url.pathname, site).toString();
 const ogImage = new URL(resolveHref(`/og/${locale}.png`), site).toString();
 
+// Real portrait (not the OG card) for the Person/ProfilePage image.
+const portraits = import.meta.glob<{ default: ImageMetadata }>('/src/assets/portraits/*.{jpg,jpeg,png,webp,avif}', {
+  eager: true,
+});
+const portraitSrc = Object.keys(portraits).sort().map((k) => portraits[k]!.default)[0];
+const portraitUrl = portraitSrc
+  ? new URL((await getImage({ src: portraitSrc, width: 800, height: 800, format: 'jpg' })).src, site).toString()
+  : ogImage;
+
+const root = `${site.origin}${resolveHref('/')}`;
+const ids = {
+  person: `${root}#person`,
+  org: `${root}#organization`,
+  website: `${root}#website`,
+  page: `${pageUrl}#webpage`,
+};
+const sameAs = ['https://www.linkedin.com/in/djamel-labani/', 'https://www.malt.fr/profile/djamellabani'];
+const areaServed = data.meta.areaServed.map((name, i) =>
+  i === data.meta.areaServed.length - 1
+    ? { '@type': 'AdministrativeArea', name }
+    : { '@type': 'City', name },
+);
+const lilleAddress = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Bureau 3, 34 place du Général de Gaulle',
+  postalCode: '59800',
+  addressLocality: 'Lille',
+  addressRegion: 'Hauts-de-France',
+  addressCountry: 'FR',
+};
+
 const jsonLd = [
   {
+    '@type': 'WebSite',
+    '@id': ids.website,
+    url: root,
+    name: 'Djamel Labani — LBN Consulting',
+    inLanguage: ['fr-FR', 'en-GB'],
+    publisher: { '@id': ids.org },
+  },
+  {
+    '@type': 'ProfilePage',
+    '@id': ids.page,
+    url: pageUrl,
+    name: data.meta.title,
+    description: data.meta.description,
+    inLanguage: locale === 'fr' ? 'fr-FR' : 'en-GB',
+    isPartOf: { '@id': ids.website },
+    about: { '@id': ids.person },
+    mainEntity: { '@id': ids.person },
+    primaryImageOfPage: { '@type': 'ImageObject', url: portraitUrl },
+    dateModified: new Date().toISOString(),
+  },
+  {
     '@type': 'Person',
-    '@id': `${site.origin}${resolveHref('/')}#person`,
+    '@id': ids.person,
     name: 'Djamel Labani',
     givenName: 'Djamel',
     familyName: 'Labani',
-    jobTitle: data.hero.role,
+    jobTitle: data.meta.jobTitle,
     description: data.meta.description,
     url: pageUrl,
-    image: ogImage,
-    sameAs: ['https://www.linkedin.com/in/djamel-labani/', 'https://www.malt.fr/profile/djamellabani'],
-    address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressCountry: 'FR' },
-    worksFor: { '@id': `${site.origin}${resolveHref('/')}#organization` },
-    knowsAbout: data.expertise.items.map((i) => i.title),
+    image: portraitUrl,
+    sameAs,
+    address: { '@type': 'PostalAddress', addressLocality: 'Lille', addressRegion: 'Hauts-de-France', addressCountry: 'FR' },
+    workLocation: { '@type': 'Place', name: 'Lille', address: lilleAddress },
+    worksFor: { '@id': ids.org },
+    knowsAbout: data.meta.keywords,
+    knowsLanguage: ['fr', 'en'],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: data.meta.jobTitle,
+      occupationLocation: { '@type': 'City', name: 'Lille' },
+      skills: data.meta.keywords.join(', '),
+    },
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'EFFICOM Lille' },
+      { '@type': 'CollegeOrUniversity', name: 'Université de Valenciennes' },
+      { '@type': 'CollegeOrUniversity', name: 'Université de Lille' },
+    ],
     hasCredential: data.expertise.certifications.items.map((c) => ({
       '@type': 'EducationalOccupationalCredential',
       name: c,
+      credentialCategory: 'certification',
+      recognizedBy: { '@type': 'Organization', name: 'Scrum.org', url: 'https://www.scrum.org' },
     })),
   },
   {
-    '@type': 'Organization',
-    '@id': `${site.origin}${resolveHref('/')}#organization`,
+    '@type': 'ProfessionalService',
+    '@id': ids.org,
     name: 'LBN Consulting',
     legalName: 'LBN CONSULTING',
-    url: pageUrl,
-    logo: new URL(resolveHref('/favicon.svg'), site).toString(),
-    founder: { '@id': `${site.origin}${resolveHref('/')}#person` },
+    description: data.lbn.text,
+    url: root,
+    image: portraitUrl,
+    logo: new URL(resolveHref('/icon-512.png'), site).toString(),
+    founder: { '@id': ids.person },
+    address: lilleAddress,
+    geo: { '@type': 'GeoCoordinates', latitude: 50.6369, longitude: 3.0633 },
+    areaServed,
+    knowsAbout: data.meta.keywords,
     vatID: 'FR33953323185',
     taxID: '95332318500025',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Bureau 3, 34 place du Général de Gaulle',
-      postalCode: '59800',
-      addressLocality: 'Lille',
-      addressCountry: 'FR',
+    sameAs,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: data.lbn.title,
+      itemListElement: data.lbn.activities.map((a) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: a.title, description: a.detail, areaServed, provider: { '@id': ids.org } },
+      })),
     },
-    sameAs: ['https://www.linkedin.com/in/djamel-labani/'],
   },
   {
     '@type': 'Organization',
     name: 'Le Berceau de Location',
     url: 'https://www.leberceaudelocation.com',
-    founder: { '@id': `${site.origin}${resolveHref('/')}#person` },
+    founder: { '@id': ids.person },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${pageUrl}#faq`,
+    isPartOf: { '@id': ids.page },
+    inLanguage: locale === 'fr' ? 'fr-FR' : 'en-GB',
+    mainEntity: data.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
   },
 ];
 ---
@@ -84,5 +172,6 @@ const jsonLd = [
   <Journey data={data} id={sectionId(3)} index={3} total={total} />
   <Berceau data={data} id={sectionId(4)} index={4} total={total} />
   <Lbn data={data} id={sectionId(5)} index={5} total={total} />
-  <Contact data={data} id={sectionId(6)} index={6} total={total} />
+  <Faq data={data} id={sectionId(6)} index={6} total={total} />
+  <Contact data={data} id={sectionId(7)} index={7} total={total} />
 </Base>

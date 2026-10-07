@@ -9,7 +9,7 @@ const en = await getEntry('site', 'en');
 if (!fr || !en) throw new Error('Missing site content');
 ---
 
-<Base locale="fr" data={fr.data} kind="legal" title={`404 — ${fr.data.notFound.title}`} description={fr.data.notFound.text}>
+<Base locale="fr" data={fr.data} kind="legal" title={`404 — ${fr.data.notFound.title}`} description={fr.data.notFound.text} noindex>
   <section class="grid-bg">
     <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
       <p class="label"><span class="text-accent">§ 404</span></p>

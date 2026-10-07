@@ -11,7 +11,7 @@ Il présente Djamel Labani, LBN Consulting et Le Berceau de Location.
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321/lbn-consulting/ (base par défaut en local, voir Déploiement)
+npm run dev        # http://localhost:4321/
 npm run build      # génère dist/
 npm run preview    # sert dist/ en local
 npx astro check    # vérification TypeScript / Astro
@@ -19,7 +19,6 @@ npx astro check    # vérification TypeScript / Astro
 
 Node 22.12 ou plus récent est requis (`engines` dans `package.json`).
 
-> En local, le site est servi sous le préfixe `/lbn-consulting/` (même chemin que l'URL github.io). Voir [Déploiement](#déploiement) pour passer au domaine personnalisé.
 
 ## Modifier le contenu
 
@@ -46,7 +45,7 @@ Quelques repères :
 
 ## Ajouter ou changer les photos
 
-Le site affiche une seule photo, dans le hero. Remplacez **`src/assets/portraits/hero.jpg`** pour la changer (carré ou 4:5 recommandé, 2000 px de côté suffisent).
+Le site affiche une seule photo, dans le hero : le fichier présent dans **`src/assets/portraits/`** (un seul fichier, carré ou 4:5, 2000 px de côté suffisent). Gardez un nom de fichier descriptif, il apparaît dans l'URL des images et compte pour le référencement, par exemple `djamel-labani-coach-produit-agile-lille.jpg`.
 
 Formats acceptés : `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`. Au build, Astro génère automatiquement les variantes AVIF et WebP aux tailles responsives (360 à 1080 px), avec un JPG de secours. Si le fichier est absent, un placeholder élégant s'affiche à la place.
 
@@ -69,7 +68,7 @@ Le workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) const
 
 ### Étape 1 : URL github.io (mode de secours)
 
-Mode 1 du bloc `env` du workflow. Le site est alors publié sur `https://djamelpf.github.io/lbn-consulting/`. En local, `npm run dev` et `npm run build` utilisent ce mode par défaut (préfixe `/lbn-consulting/`).
+Mode 1 du bloc `env` du workflow. Le site est alors publié sur `https://djamelpf.github.io/lbn-consulting/`. Par défaut, `npm run dev` et `npm run build` ciblent le domaine personnalisé.
 
 ### Étape 2 : brancher www.lbn-consulting.com (mode actif)
 
@@ -122,3 +121,20 @@ src/
 ## Mesure d'audience (désactivée)
 
 Le site n'embarque aucun outil d'analyse. Un branchement Umami (sans cookie) est prêt mais **désactivé** : `umamiWebsiteId` est vide dans [`src/lib/site.ts`](src/lib/site.ts), donc aucun script n'est chargé. Les attributs `data-umami-event` présents sur les liens (clics LinkedIn par emplacement, lien vers le Berceau, changement de langue, navigation) sont inertes tant qu'aucun identifiant n'est renseigné. Si vous l'activez un jour, mettez à jour la section « Données personnelles et cookies » des mentions légales et le texte `footer.madeWith`.
+
+## Référencement (SEO)
+
+Cibles principales : « coach produit Lille », « coach agile Lille », « product manager freelance Lille », « consultant agile Lille » et leurs équivalents anglais.
+
+- **Textes** : les titres, descriptions, mots-clés et zones desservies sont dans `meta` de chaque JSON (`title`, `description`, `jobTitle`, `keywords`, `areaServed`). Gardez le titre sous 60 caractères et la description sous 160.
+- **H1** : la ligne de mots-clés (`hero.eyebrow`) et le nom forment ensemble le titre principal de la page.
+- **FAQ** : la section `faq` répond aux questions que les gens tapent dans Google ; ajoutez-en si de nouvelles questions reviennent.
+- **Données structurées** (schema.org) générées dans `src/components/HomePage.astro` : `WebSite`, `ProfilePage`, `Person`, `ProfessionalService` (LBN Consulting, avec adresse, coordonnées GPS, zone desservie et services), `FAQPage`, et `BreadcrumbList` sur les mentions légales.
+- **Technique** : `sitemap-index.xml` avec `lastmod` et `hreflang`, `robots.txt`, balises `canonical`/`hreflang`, meta `robots`, géolocalisation (`geo.*`), favicons (`favicon.ico`, PNG, `site.webmanifest`), page 404 en `noindex`.
+- **Indexation** : propriété Google Search Console sur `https://www.lbn-consulting.com/` (fichier de vérification dans `public/`), sitemap soumis ; IndexNow (Bing, Yandex) avec la clé du fichier `public/<clé>.txt`.
+
+Pour annoncer une mise à jour à Bing et Yandex après un déploiement :
+
+```bash
+KEY=$(basename public/*.txt .txt); curl -s -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json' -d "{\"host\":\"www.lbn-consulting.com\",\"key\":\"$KEY\",\"urlList\":[\"https://www.lbn-consulting.com/\",\"https://www.lbn-consulting.com/en/\"]}"
+```

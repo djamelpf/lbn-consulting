@@ -17,12 +17,11 @@ const isExternal = (href: string) => /^https?:/.test(href);
 
   <div class="relative mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-14 sm:px-6 md:pt-20 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-24 lg:pt-24">
     <div class="lg:col-span-7">
-      <p class="label hero-in" style="--in: 0">
-        <span class="text-accent">§ 00</span> <span aria-hidden="true">—</span> {hero.eyebrow}
-      </p>
-
-      <h1 id="hero-title" class="display hero-in mt-5 text-[clamp(2.75rem,9vw,6.5rem)]" style="--in: 1">
-        {hero.name}
+      <h1 id="hero-title">
+        <span class="label hero-in hero-eyebrow block" style="--in: 0">{hero.eyebrow}</span>
+        <span class="display hero-in mt-5 block text-[clamp(2.75rem,9vw,6.5rem)]" style="--in: 1">
+          {hero.name}
+        </span>
       </h1>
 
       <p class="display hero-in mt-6 max-w-[22ch] text-[clamp(1.5rem,3.2vw,2.5rem)] !font-medium !leading-[1.1] !tracking-[-0.02em]" style="--in: 2">
@@ -105,6 +104,12 @@ const isExternal = (href: string) => /^https?:/.test(href);
       opacity: 1;
       transform: none;
     }
+  }
+
+  /* Decorative section number, kept out of the H1 text content. */
+  .hero-eyebrow::before {
+    content: "§ 00 — ";
+    color: var(--accent);
   }
 
   .halo {

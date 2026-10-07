@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHead from '../SectionHead.astro';
+
+interface Props {
+  data: CollectionEntry<'site'>['data'];
+  id: string;
+  index: number;
+  total: number;
+}
+
+const { data, id, index, total } = Astro.props;
+const { faq } = data;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section id={id} class="scroll-mt-20 border-b border-line" aria-labelledby={`${id}-title`}>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <SectionHead index={index} total={total} title={faq.title} intro={faq.intro} id={id} />
+
+    <div class="md:grid md:grid-cols-12 md:gap-8">
+      <ul class="border-t border-line md:col-span-9 md:col-start-4" role="list">
+        {
+          faq.items.map((item, i) => (
+            <li class="border-b border-line" data-reveal style={`--reveal-delay: ${Math.min(i, 3) * 60}ms`}>
+              <details class="faq group" open={i === 0}>
+                <summary class="flex min-h-14 cursor-pointer list-none items-baseline gap-4 py-5 pr-2">
+                  <span class="label shrink-0 text-accent">{pad(i + 1)}</span>
+                  <h3 class="display flex-1 text-lg !tracking-[-0.015em] md:text-xl">{item.q}</h3>
+                  <span class="faq-mark font-mono text-lg text-muted" aria-hidden="true" />
+                </summary>
+                <p class="prose-site pb-6 pl-9 text-muted md:text-lg">{item.a}</p>
+              </details>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-mark::before {
+    content: "+";
+  }
+
+  .faq[open] .faq-mark::before {
+    content: "−";
+  }
+
+  .faq summary:hover h3 {
+    color: var(--accent);
+  }
+</style>
